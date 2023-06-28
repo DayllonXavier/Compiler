@@ -1,0 +1,3 @@
+"123" se aux @ : x 1 3.5 2e5 4Ee5
+{texto} 123.
+fimse

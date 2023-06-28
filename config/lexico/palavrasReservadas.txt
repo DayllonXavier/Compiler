@@ -1,0 +1,14 @@
+inicio
+varinicio
+varfim
+escreva
+leia
+se
+entao
+fimse
+repita
+fimRepita
+fim
+inteiro
+literal
+real

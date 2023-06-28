@@ -1,0 +1,41 @@
+teste ( ( ) , ; "aaaa" 
+{teste 
+
+
+}
+
+a > b
+a < b
+a >= b
+a <= b
+a => b
+a <> b
+a <- b
+alsdfkjaslfj
+a + b * c - d / e
+
+"0 espaco"
+"1 Inteiro" 1234
+"2 erro numerico" 12.
+"3 float" 123.456
+"4 erro notacao cientifica" 123.4e
+"5 erro notacao cientifica +" 123.4e+
+"6 notacao cientifica +" 123.4e+9
+"7 erro de string mas n da pra checar facil num arquivo so"
+"8 string" "string"
+"9 comentario tbm n da pra checar" { veja so nem aparece }
+"10 caractere invalido" #
+inicio
+varinicio
+varfim
+escreva
+leia
+se
+entao
+fimse
+Repita
+fimRepita
+fim
+inteiro
+literal
+real
