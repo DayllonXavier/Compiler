@@ -17,6 +17,7 @@ using namespace std;
 class Lexico
 {
     public:
+        //Lexico();
         Lexico(string _pathFileProgramaFonte, SymbolTable& _tabelaDeSimbolos);
         ~Lexico();
         Token SCANNER();
@@ -31,7 +32,7 @@ class Lexico
         string pathFileAutomato = "config/lexico/AutomatoLexico.txt";
         string pathFileProgramaFonte;
 
-        SymbolTable & tabelaDeSimbolos;
+        SymbolTable& tabelaDeSimbolos;
         map<char, int> idxOfCaracter;
         vector<vector<int>> transicoesAutomato;
         map<int, string> estadosFinais, mensagensErro, tiposDosEstados;

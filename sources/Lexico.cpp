@@ -1,5 +1,9 @@
 #include "Lexico.hpp"
 
+/*Lexico::Lexico()
+{
+}*/
+
 Lexico::Lexico(string _pathFileProgramaFonte, SymbolTable& _tabelaDeSimbolos)
 : tabelaDeSimbolos(_tabelaDeSimbolos)
 {
