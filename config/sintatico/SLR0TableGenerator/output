@@ -1,0 +1,1158 @@
+RULES:
+(1) P' -> P
+(2) P -> inicio V A
+(3) V -> varinicio LV
+(4) LV -> D LV
+(5) LV -> varfim pt_v
+(6) D -> TIPO L pt_v
+(7) L -> id vir L
+(8) L -> id
+(9) TIPO -> inteiro
+(10) TIPO -> real
+(11) TIPO -> literal
+(12) A -> ES A
+(13) ES -> leia id pt_v
+(14) ES -> escreva ARG pt_v
+(15) ARG -> lit
+(16) ARG -> num
+(17) ARG -> id
+(18) A -> CMD A
+(19) CMD -> id rcb LD pt_v
+(20) LD -> OPRD opm OPRD
+(21) LD -> OPRD
+(22) OPRD -> id
+(23) OPRD -> num
+(24) A -> COND A
+(25) COND -> CAB CP
+(26) CAB -> se ab_p EXP_R fc_p então
+(27) EXP_R -> OPRD opr OPRD
+(28) CP -> ES CP
+(29) CP -> CMD CP
+(30) CP -> COND CP
+(31) CP -> fimse
+(32) A -> R A
+(33) R -> CABR CPR
+(34) CABR -> repita ab_p EXP_R fc_p
+(35) CPR -> ES CPR
+(36) CPR -> CMD CPR
+(37) CPR -> COND CPR
+(38) CPR -> fimrepita
+(39) A -> fim
+States:
+State 0
+Depth 0
+Rules: 
+(1) P' -> .P
+(2) P -> .inicio V A
+Closures: 
+P
+inicio
+Transitions: 
+(P,1)
+(inicio,2)
+
+State 1
+Depth 1
+Rules: 
+(1) P' -> P.
+Closures: 
+Transitions: 
+
+State 2
+Depth 1
+Rules: 
+(2) P -> inicio .V A
+(3) V -> .varinicio LV
+Closures: 
+V
+varinicio
+Transitions: 
+(V,3)
+(varinicio,4)
+
+State 3
+Depth 2
+Rules: 
+(2) P -> inicio V .A
+(12) A -> .ES A
+(18) A -> .CMD A
+(24) A -> .COND A
+(32) A -> .R A
+(39) A -> .fim
+(13) ES -> .leia id pt_v
+(14) ES -> .escreva ARG pt_v
+(19) CMD -> .id rcb LD pt_v
+(25) COND -> .CAB CP
+(33) R -> .CABR CPR
+(26) CAB -> .se ab_p EXP_R fc_p então
+(34) CABR -> .repita ab_p EXP_R fc_p
+Closures: 
+A
+ES
+CMD
+COND
+R
+fim
+leia
+escreva
+id
+CAB
+CABR
+se
+repita
+Transitions: 
+(A,5)
+(ES,6)
+(CMD,7)
+(COND,8)
+(R,9)
+(fim,10)
+(leia,11)
+(escreva,12)
+(id,13)
+(CAB,14)
+(CABR,15)
+(se,16)
+(repita,17)
+
+State 4
+Depth 2
+Rules: 
+(3) V -> varinicio .LV
+(4) LV -> .D LV
+(5) LV -> .varfim pt_v
+(6) D -> .TIPO L pt_v
+(9) TIPO -> .inteiro
+(10) TIPO -> .real
+(11) TIPO -> .literal
+Closures: 
+LV
+D
+varfim
+TIPO
+inteiro
+real
+literal
+Transitions: 
+(LV,18)
+(D,19)
+(varfim,20)
+(TIPO,21)
+(inteiro,22)
+(real,23)
+(literal,24)
+
+State 5
+Depth 3
+Rules: 
+(2) P -> inicio V A.
+Closures: 
+Transitions: 
+
+State 6
+Depth 3
+Rules: 
+(12) A -> ES .A
+(12) A -> .ES A
+(18) A -> .CMD A
+(24) A -> .COND A
+(32) A -> .R A
+(39) A -> .fim
+(13) ES -> .leia id pt_v
+(14) ES -> .escreva ARG pt_v
+(19) CMD -> .id rcb LD pt_v
+(25) COND -> .CAB CP
+(33) R -> .CABR CPR
+(26) CAB -> .se ab_p EXP_R fc_p então
+(34) CABR -> .repita ab_p EXP_R fc_p
+Closures: 
+A
+ES
+CMD
+COND
+R
+fim
+leia
+escreva
+id
+CAB
+CABR
+se
+repita
+Transitions: 
+(A,25)
+(ES,6)
+(CMD,7)
+(COND,8)
+(R,9)
+(fim,10)
+(leia,11)
+(escreva,12)
+(id,13)
+(CAB,14)
+(CABR,15)
+(se,16)
+(repita,17)
+
+State 7
+Depth 3
+Rules: 
+(18) A -> CMD .A
+(12) A -> .ES A
+(18) A -> .CMD A
+(24) A -> .COND A
+(32) A -> .R A
+(39) A -> .fim
+(13) ES -> .leia id pt_v
+(14) ES -> .escreva ARG pt_v
+(19) CMD -> .id rcb LD pt_v
+(25) COND -> .CAB CP
+(33) R -> .CABR CPR
+(26) CAB -> .se ab_p EXP_R fc_p então
+(34) CABR -> .repita ab_p EXP_R fc_p
+Closures: 
+A
+ES
+CMD
+COND
+R
+fim
+leia
+escreva
+id
+CAB
+CABR
+se
+repita
+Transitions: 
+(A,26)
+(ES,6)
+(CMD,7)
+(COND,8)
+(R,9)
+(fim,10)
+(leia,11)
+(escreva,12)
+(id,13)
+(CAB,14)
+(CABR,15)
+(se,16)
+(repita,17)
+
+State 8
+Depth 3
+Rules: 
+(24) A -> COND .A
+(12) A -> .ES A
+(18) A -> .CMD A
+(24) A -> .COND A
+(32) A -> .R A
+(39) A -> .fim
+(13) ES -> .leia id pt_v
+(14) ES -> .escreva ARG pt_v
+(19) CMD -> .id rcb LD pt_v
+(25) COND -> .CAB CP
+(33) R -> .CABR CPR
+(26) CAB -> .se ab_p EXP_R fc_p então
+(34) CABR -> .repita ab_p EXP_R fc_p
+Closures: 
+A
+ES
+CMD
+COND
+R
+fim
+leia
+escreva
+id
+CAB
+CABR
+se
+repita
+Transitions: 
+(A,27)
+(ES,6)
+(CMD,7)
+(COND,8)
+(R,9)
+(fim,10)
+(leia,11)
+(escreva,12)
+(id,13)
+(CAB,14)
+(CABR,15)
+(se,16)
+(repita,17)
+
+State 9
+Depth 3
+Rules: 
+(32) A -> R .A
+(12) A -> .ES A
+(18) A -> .CMD A
+(24) A -> .COND A
+(32) A -> .R A
+(39) A -> .fim
+(13) ES -> .leia id pt_v
+(14) ES -> .escreva ARG pt_v
+(19) CMD -> .id rcb LD pt_v
+(25) COND -> .CAB CP
+(33) R -> .CABR CPR
+(26) CAB -> .se ab_p EXP_R fc_p então
+(34) CABR -> .repita ab_p EXP_R fc_p
+Closures: 
+A
+ES
+CMD
+COND
+R
+fim
+leia
+escreva
+id
+CAB
+CABR
+se
+repita
+Transitions: 
+(A,28)
+(ES,6)
+(CMD,7)
+(COND,8)
+(R,9)
+(fim,10)
+(leia,11)
+(escreva,12)
+(id,13)
+(CAB,14)
+(CABR,15)
+(se,16)
+(repita,17)
+
+State 10
+Depth 3
+Rules: 
+(39) A -> fim.
+Closures: 
+Transitions: 
+
+State 11
+Depth 3
+Rules: 
+(13) ES -> leia .id pt_v
+Closures: 
+id
+Transitions: 
+(id,29)
+
+State 12
+Depth 3
+Rules: 
+(14) ES -> escreva .ARG pt_v
+(15) ARG -> .lit
+(16) ARG -> .num
+(17) ARG -> .id
+Closures: 
+ARG
+lit
+num
+id
+Transitions: 
+(ARG,30)
+(lit,31)
+(num,32)
+(id,33)
+
+State 13
+Depth 3
+Rules: 
+(19) CMD -> id .rcb LD pt_v
+Closures: 
+rcb
+Transitions: 
+(rcb,34)
+
+State 14
+Depth 3
+Rules: 
+(25) COND -> CAB .CP
+(28) CP -> .ES CP
+(29) CP -> .CMD CP
+(30) CP -> .COND CP
+(31) CP -> .fimse
+(13) ES -> .leia id pt_v
+(14) ES -> .escreva ARG pt_v
+(19) CMD -> .id rcb LD pt_v
+(25) COND -> .CAB CP
+(26) CAB -> .se ab_p EXP_R fc_p então
+Closures: 
+CP
+ES
+CMD
+COND
+fimse
+leia
+escreva
+id
+CAB
+se
+Transitions: 
+(CP,35)
+(ES,36)
+(CMD,37)
+(COND,38)
+(fimse,39)
+(leia,11)
+(escreva,12)
+(id,13)
+(CAB,14)
+(se,16)
+
+State 15
+Depth 3
+Rules: 
+(33) R -> CABR .CPR
+(35) CPR -> .ES CPR
+(36) CPR -> .CMD CPR
+(37) CPR -> .COND CPR
+(38) CPR -> .fimrepita
+(13) ES -> .leia id pt_v
+(14) ES -> .escreva ARG pt_v
+(19) CMD -> .id rcb LD pt_v
+(25) COND -> .CAB CP
+(26) CAB -> .se ab_p EXP_R fc_p então
+Closures: 
+CPR
+ES
+CMD
+COND
+fimrepita
+leia
+escreva
+id
+CAB
+se
+Transitions: 
+(CPR,40)
+(ES,41)
+(CMD,42)
+(COND,43)
+(fimrepita,44)
+(leia,11)
+(escreva,12)
+(id,13)
+(CAB,14)
+(se,16)
+
+State 16
+Depth 3
+Rules: 
+(26) CAB -> se .ab_p EXP_R fc_p então
+Closures: 
+ab_p
+Transitions: 
+(ab_p,45)
+
+State 17
+Depth 3
+Rules: 
+(34) CABR -> repita .ab_p EXP_R fc_p
+Closures: 
+ab_p
+Transitions: 
+(ab_p,46)
+
+State 18
+Depth 3
+Rules: 
+(3) V -> varinicio LV.
+Closures: 
+Transitions: 
+
+State 19
+Depth 3
+Rules: 
+(4) LV -> D .LV
+(4) LV -> .D LV
+(5) LV -> .varfim pt_v
+(6) D -> .TIPO L pt_v
+(9) TIPO -> .inteiro
+(10) TIPO -> .real
+(11) TIPO -> .literal
+Closures: 
+LV
+D
+varfim
+TIPO
+inteiro
+real
+literal
+Transitions: 
+(LV,47)
+(D,19)
+(varfim,20)
+(TIPO,21)
+(inteiro,22)
+(real,23)
+(literal,24)
+
+State 20
+Depth 3
+Rules: 
+(5) LV -> varfim .pt_v
+Closures: 
+pt_v
+Transitions: 
+(pt_v,48)
+
+State 21
+Depth 3
+Rules: 
+(6) D -> TIPO .L pt_v
+(7) L -> .id vir L
+(8) L -> .id
+Closures: 
+L
+id
+Transitions: 
+(L,49)
+(id,50)
+
+State 22
+Depth 3
+Rules: 
+(9) TIPO -> inteiro.
+Closures: 
+Transitions: 
+
+State 23
+Depth 3
+Rules: 
+(10) TIPO -> real.
+Closures: 
+Transitions: 
+
+State 24
+Depth 3
+Rules: 
+(11) TIPO -> literal.
+Closures: 
+Transitions: 
+
+State 25
+Depth 4
+Rules: 
+(12) A -> ES A.
+Closures: 
+Transitions: 
+
+State 26
+Depth 4
+Rules: 
+(18) A -> CMD A.
+Closures: 
+Transitions: 
+
+State 27
+Depth 4
+Rules: 
+(24) A -> COND A.
+Closures: 
+Transitions: 
+
+State 28
+Depth 4
+Rules: 
+(32) A -> R A.
+Closures: 
+Transitions: 
+
+State 29
+Depth 4
+Rules: 
+(13) ES -> leia id .pt_v
+Closures: 
+pt_v
+Transitions: 
+(pt_v,51)
+
+State 30
+Depth 4
+Rules: 
+(14) ES -> escreva ARG .pt_v
+Closures: 
+pt_v
+Transitions: 
+(pt_v,52)
+
+State 31
+Depth 4
+Rules: 
+(15) ARG -> lit.
+Closures: 
+Transitions: 
+
+State 32
+Depth 4
+Rules: 
+(16) ARG -> num.
+Closures: 
+Transitions: 
+
+State 33
+Depth 4
+Rules: 
+(17) ARG -> id.
+Closures: 
+Transitions: 
+
+State 34
+Depth 4
+Rules: 
+(19) CMD -> id rcb .LD pt_v
+(20) LD -> .OPRD opm OPRD
+(21) LD -> .OPRD
+(22) OPRD -> .id
+(23) OPRD -> .num
+Closures: 
+LD
+OPRD
+id
+num
+Transitions: 
+(LD,53)
+(OPRD,54)
+(id,55)
+(num,56)
+
+State 35
+Depth 4
+Rules: 
+(25) COND -> CAB CP.
+Closures: 
+Transitions: 
+
+State 36
+Depth 4
+Rules: 
+(28) CP -> ES .CP
+(28) CP -> .ES CP
+(29) CP -> .CMD CP
+(30) CP -> .COND CP
+(31) CP -> .fimse
+(13) ES -> .leia id pt_v
+(14) ES -> .escreva ARG pt_v
+(19) CMD -> .id rcb LD pt_v
+(25) COND -> .CAB CP
+(26) CAB -> .se ab_p EXP_R fc_p então
+Closures: 
+CP
+ES
+CMD
+COND
+fimse
+leia
+escreva
+id
+CAB
+se
+Transitions: 
+(CP,57)
+(ES,36)
+(CMD,37)
+(COND,38)
+(fimse,39)
+(leia,11)
+(escreva,12)
+(id,13)
+(CAB,14)
+(se,16)
+
+State 37
+Depth 4
+Rules: 
+(29) CP -> CMD .CP
+(28) CP -> .ES CP
+(29) CP -> .CMD CP
+(30) CP -> .COND CP
+(31) CP -> .fimse
+(13) ES -> .leia id pt_v
+(14) ES -> .escreva ARG pt_v
+(19) CMD -> .id rcb LD pt_v
+(25) COND -> .CAB CP
+(26) CAB -> .se ab_p EXP_R fc_p então
+Closures: 
+CP
+ES
+CMD
+COND
+fimse
+leia
+escreva
+id
+CAB
+se
+Transitions: 
+(CP,58)
+(ES,36)
+(CMD,37)
+(COND,38)
+(fimse,39)
+(leia,11)
+(escreva,12)
+(id,13)
+(CAB,14)
+(se,16)
+
+State 38
+Depth 4
+Rules: 
+(30) CP -> COND .CP
+(28) CP -> .ES CP
+(29) CP -> .CMD CP
+(30) CP -> .COND CP
+(31) CP -> .fimse
+(13) ES -> .leia id pt_v
+(14) ES -> .escreva ARG pt_v
+(19) CMD -> .id rcb LD pt_v
+(25) COND -> .CAB CP
+(26) CAB -> .se ab_p EXP_R fc_p então
+Closures: 
+CP
+ES
+CMD
+COND
+fimse
+leia
+escreva
+id
+CAB
+se
+Transitions: 
+(CP,59)
+(ES,36)
+(CMD,37)
+(COND,38)
+(fimse,39)
+(leia,11)
+(escreva,12)
+(id,13)
+(CAB,14)
+(se,16)
+
+State 39
+Depth 4
+Rules: 
+(31) CP -> fimse.
+Closures: 
+Transitions: 
+
+State 40
+Depth 4
+Rules: 
+(33) R -> CABR CPR.
+Closures: 
+Transitions: 
+
+State 41
+Depth 4
+Rules: 
+(35) CPR -> ES .CPR
+(35) CPR -> .ES CPR
+(36) CPR -> .CMD CPR
+(37) CPR -> .COND CPR
+(38) CPR -> .fimrepita
+(13) ES -> .leia id pt_v
+(14) ES -> .escreva ARG pt_v
+(19) CMD -> .id rcb LD pt_v
+(25) COND -> .CAB CP
+(26) CAB -> .se ab_p EXP_R fc_p então
+Closures: 
+CPR
+ES
+CMD
+COND
+fimrepita
+leia
+escreva
+id
+CAB
+se
+Transitions: 
+(CPR,60)
+(ES,41)
+(CMD,42)
+(COND,43)
+(fimrepita,44)
+(leia,11)
+(escreva,12)
+(id,13)
+(CAB,14)
+(se,16)
+
+State 42
+Depth 4
+Rules: 
+(36) CPR -> CMD .CPR
+(35) CPR -> .ES CPR
+(36) CPR -> .CMD CPR
+(37) CPR -> .COND CPR
+(38) CPR -> .fimrepita
+(13) ES -> .leia id pt_v
+(14) ES -> .escreva ARG pt_v
+(19) CMD -> .id rcb LD pt_v
+(25) COND -> .CAB CP
+(26) CAB -> .se ab_p EXP_R fc_p então
+Closures: 
+CPR
+ES
+CMD
+COND
+fimrepita
+leia
+escreva
+id
+CAB
+se
+Transitions: 
+(CPR,61)
+(ES,41)
+(CMD,42)
+(COND,43)
+(fimrepita,44)
+(leia,11)
+(escreva,12)
+(id,13)
+(CAB,14)
+(se,16)
+
+State 43
+Depth 4
+Rules: 
+(37) CPR -> COND .CPR
+(35) CPR -> .ES CPR
+(36) CPR -> .CMD CPR
+(37) CPR -> .COND CPR
+(38) CPR -> .fimrepita
+(13) ES -> .leia id pt_v
+(14) ES -> .escreva ARG pt_v
+(19) CMD -> .id rcb LD pt_v
+(25) COND -> .CAB CP
+(26) CAB -> .se ab_p EXP_R fc_p então
+Closures: 
+CPR
+ES
+CMD
+COND
+fimrepita
+leia
+escreva
+id
+CAB
+se
+Transitions: 
+(CPR,62)
+(ES,41)
+(CMD,42)
+(COND,43)
+(fimrepita,44)
+(leia,11)
+(escreva,12)
+(id,13)
+(CAB,14)
+(se,16)
+
+State 44
+Depth 4
+Rules: 
+(38) CPR -> fimrepita.
+Closures: 
+Transitions: 
+
+State 45
+Depth 4
+Rules: 
+(26) CAB -> se ab_p .EXP_R fc_p então
+(27) EXP_R -> .OPRD opr OPRD
+(22) OPRD -> .id
+(23) OPRD -> .num
+Closures: 
+EXP_R
+OPRD
+id
+num
+Transitions: 
+(EXP_R,63)
+(OPRD,64)
+(id,55)
+(num,56)
+
+State 46
+Depth 4
+Rules: 
+(34) CABR -> repita ab_p .EXP_R fc_p
+(27) EXP_R -> .OPRD opr OPRD
+(22) OPRD -> .id
+(23) OPRD -> .num
+Closures: 
+EXP_R
+OPRD
+id
+num
+Transitions: 
+(EXP_R,65)
+(OPRD,64)
+(id,55)
+(num,56)
+
+State 47
+Depth 4
+Rules: 
+(4) LV -> D LV.
+Closures: 
+Transitions: 
+
+State 48
+Depth 4
+Rules: 
+(5) LV -> varfim pt_v.
+Closures: 
+Transitions: 
+
+State 49
+Depth 4
+Rules: 
+(6) D -> TIPO L .pt_v
+Closures: 
+pt_v
+Transitions: 
+(pt_v,66)
+
+State 50
+Depth 4
+Rules: 
+(7) L -> id .vir L
+(8) L -> id.
+Closures: 
+vir
+Transitions: 
+(vir,67)
+
+State 51
+Depth 5
+Rules: 
+(13) ES -> leia id pt_v.
+Closures: 
+Transitions: 
+
+State 52
+Depth 5
+Rules: 
+(14) ES -> escreva ARG pt_v.
+Closures: 
+Transitions: 
+
+State 53
+Depth 5
+Rules: 
+(19) CMD -> id rcb LD .pt_v
+Closures: 
+pt_v
+Transitions: 
+(pt_v,68)
+
+State 54
+Depth 5
+Rules: 
+(20) LD -> OPRD .opm OPRD
+(21) LD -> OPRD.
+Closures: 
+opm
+Transitions: 
+(opm,69)
+
+State 55
+Depth 5
+Rules: 
+(22) OPRD -> id.
+Closures: 
+Transitions: 
+
+State 56
+Depth 5
+Rules: 
+(23) OPRD -> num.
+Closures: 
+Transitions: 
+
+State 57
+Depth 5
+Rules: 
+(28) CP -> ES CP.
+Closures: 
+Transitions: 
+
+State 58
+Depth 5
+Rules: 
+(29) CP -> CMD CP.
+Closures: 
+Transitions: 
+
+State 59
+Depth 5
+Rules: 
+(30) CP -> COND CP.
+Closures: 
+Transitions: 
+
+State 60
+Depth 5
+Rules: 
+(35) CPR -> ES CPR.
+Closures: 
+Transitions: 
+
+State 61
+Depth 5
+Rules: 
+(36) CPR -> CMD CPR.
+Closures: 
+Transitions: 
+
+State 62
+Depth 5
+Rules: 
+(37) CPR -> COND CPR.
+Closures: 
+Transitions: 
+
+State 63
+Depth 5
+Rules: 
+(26) CAB -> se ab_p EXP_R .fc_p então
+Closures: 
+fc_p
+Transitions: 
+(fc_p,70)
+
+State 64
+Depth 5
+Rules: 
+(27) EXP_R -> OPRD .opr OPRD
+Closures: 
+opr
+Transitions: 
+(opr,71)
+
+State 65
+Depth 5
+Rules: 
+(34) CABR -> repita ab_p EXP_R .fc_p
+Closures: 
+fc_p
+Transitions: 
+(fc_p,72)
+
+State 66
+Depth 5
+Rules: 
+(6) D -> TIPO L pt_v.
+Closures: 
+Transitions: 
+
+State 67
+Depth 5
+Rules: 
+(7) L -> id vir .L
+(7) L -> .id vir L
+(8) L -> .id
+Closures: 
+L
+id
+Transitions: 
+(L,73)
+(id,50)
+
+State 68
+Depth 6
+Rules: 
+(19) CMD -> id rcb LD pt_v.
+Closures: 
+Transitions: 
+
+State 69
+Depth 6
+Rules: 
+(20) LD -> OPRD opm .OPRD
+(22) OPRD -> .id
+(23) OPRD -> .num
+Closures: 
+OPRD
+id
+num
+Transitions: 
+(OPRD,74)
+(id,55)
+(num,56)
+
+State 70
+Depth 6
+Rules: 
+(26) CAB -> se ab_p EXP_R fc_p .então
+Closures: 
+então
+Transitions: 
+(então,75)
+
+State 71
+Depth 6
+Rules: 
+(27) EXP_R -> OPRD opr .OPRD
+(22) OPRD -> .id
+(23) OPRD -> .num
+Closures: 
+OPRD
+id
+num
+Transitions: 
+(OPRD,76)
+(id,55)
+(num,56)
+
+State 72
+Depth 6
+Rules: 
+(34) CABR -> repita ab_p EXP_R fc_p.
+Closures: 
+Transitions: 
+
+State 73
+Depth 6
+Rules: 
+(7) L -> id vir L.
+Closures: 
+Transitions: 
+
+State 74
+Depth 7
+Rules: 
+(20) LD -> OPRD opm OPRD.
+Closures: 
+Transitions: 
+
+State 75
+Depth 7
+Rules: 
+(26) CAB -> se ab_p EXP_R fc_p então.
+Closures: 
+Transitions: 
+
+State 76
+Depth 7
+Rules: 
+(27) EXP_R -> OPRD opr OPRD.
+Closures: 
+Transitions: 
+
+
