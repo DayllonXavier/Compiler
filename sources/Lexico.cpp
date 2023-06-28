@@ -92,14 +92,14 @@ Token Lexico::SCANNER()
     Token token;
 
     if (!error){
-        if (estadosFinais[estado] == "Id"){
+        if (estadosFinais[estado] == "id"){
             token = tabelaDeSimbolos.pesquisar(buffer);
             if (token == Token()){
                 token = Token(estadosFinais[estado], buffer, tiposDosEstados[estado]);
                 tabelaDeSimbolos.inserir(token);
             }
         }
-        else if (estadosFinais[estado] == "Comentario"){
+        else if (estadosFinais[estado] == "comentario"){
             desfazerLeitura();
             estado = 0;
             buffer.clear();

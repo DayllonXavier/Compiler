@@ -25,62 +25,62 @@
 0
 Construção Inválida
 1
-Num
+num
 Inteiro
 0
 Definição de número incompleta
 1
-Num
+num
 Real
 0
 Definição de número incompleta
 0
 Definição de número incompleta
 1
-Num
+num
 Real
 0
 Definição de literal incompleta
 1
-Lit
+lit
 Literal
 0
 Comentario não fechado
 1
+comentario
 Comentario
-Comentario
 1
-Id
+id
 NULO
 1
-OPR
+opr
 NULO
 1
-RCB
+rcb
 NULO
 1
-OPR
+opr
 NULO
 1
-OPR
+opr
 NULO
 1
-EOF
+eof
 NULO
 1
-OPM
+opm
 NULO
 1
-AB_P
+ab_p
 NULO
 1
-FC_P
+fc_p
 NULO
 1
-PT_V
+pt_v
 NULO
 1
-VIR
+vir
 NULO
 0
 Caractere inválido

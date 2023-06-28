@@ -8,6 +8,7 @@
 #include <fstream>
 #include <assert.h>
 #include <vector>
+#include <stack>
 
 #include "Token.hpp"
 #include "Lexico.hpp"
@@ -19,6 +20,8 @@ class Sintatico
     public:
         Sintatico(Lexico& _analisadorLexico);
         ~Sintatico();
+        bool process();
+
     private:
         void initSintatico();
         void loadBasicInformations();
@@ -28,6 +31,15 @@ class Sintatico
         void loadNonTerminalSymbols();
         void loadActionTable();
         void loadGotoTable();
+
+        void stackAdd(int value);
+        void stackPop(int nbOfPop=1);
+        int stackTop();
+        void stackClear();
+
+        void printRule(int idxOfRule);
+        void getNextToken();
+        void fixError();
 
         const string pathToBasicInformation = "config/sintatico/qtd.txt";
         const string pathToGrammar = "config/sintatico/Grammar/grammar.txt";
@@ -39,11 +51,15 @@ class Sintatico
 
         int nbEstados, nbTerminalSymbols, nbNonTerminalSymbols, nbRules;
         Lexico& analisadorLexico;
-        map<int, string> rules;
+        map<int, string> rules, leftOfRules;
         map<int, int> rulesSize;
         map<string, int> terminalSymbolsIdx, nonTerminalSymbolsIdx;
         vector<vector<int>> gotoTable;
         vector<vector<pair<char, int>>> actionTable;
+
+        stack<int> automatonStack;
+        Token token;
+        int state, nextState;
 };
 
 #endif //Sintatico_hpp

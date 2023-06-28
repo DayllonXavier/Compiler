@@ -1,6 +1,6 @@
 EOF
 ab_p
-então
+entao
 escreva
 fc_p
 fim

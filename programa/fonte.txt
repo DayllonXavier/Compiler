@@ -1,0 +1,4 @@
+inicio
+    varinicio
+    varfim;
+fim

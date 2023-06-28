@@ -18,9 +18,11 @@ int main(int argc, char *argv[]){
         t = l.SCANNER();
         if (t.getClasse() != "ERRO")
             cout << t << endl;
-    } while (t.getClasse() != "EOF");
-    tabelaDeSimbolos.imprimir();*/
+    } while (t.getClasse() != "EOF");*/
+    //tabelaDeSimbolos.imprimir();
 
     Sintatico s(l);
+    bool f = s.process();
+    cout << (f ? "TRUE" : "FALSE") << endl;
     return 0;
 }

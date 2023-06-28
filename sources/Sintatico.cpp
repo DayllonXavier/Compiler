@@ -38,12 +38,13 @@ void Sintatico::loadRules()
     ifstream file(pathToGrammar);
     assert(file.is_open());
     int id;
-    string rule;
+    string leftOfRule, rule;
     for (int i = 0; i < nbRules; i++){
-        file >> id;
+        file >> id >> leftOfRule;
         getline(file, rule);
-        //cout << id<<  "  -----   " << rule << endl;
-        rules[id] = rule;
+        leftOfRules[id] = leftOfRule;
+        rules[id] = leftOfRule + " " + rule;
+        //cout << id<<  "  --(" << leftOfRule << ")---   " << rules[id] << endl;
     }
     file.close();
 }
@@ -144,4 +145,92 @@ void Sintatico::loadGotoTable()
     }*/
 
     file.close();
+}
+
+void Sintatico::stackAdd(int value)
+{
+    automatonStack.push(value);
+    //cout << "add " << value << endl;
+}
+
+void Sintatico::stackPop(int nbOfPop)
+{
+    //cout << "A" << endl;
+    while(nbOfPop-- > 0){
+        //cout << "pop ";
+        //cout << automatonStack.top() << endl;
+        automatonStack.pop();
+    }
+}
+
+int Sintatico::stackTop()
+{
+    return automatonStack.top();
+}
+
+void Sintatico::stackClear(){
+    while (!automatonStack.empty()){
+        automatonStack.pop();
+    }
+}
+
+void Sintatico::getNextToken()
+{
+    token = analisadorLexico.SCANNER();
+    while(token.getClasse() == "ERRO"){
+        token = analisadorLexico.SCANNER();
+    }
+    //cout << state << " " << token.getClasse() << " " << terminalSymbolsIdx[token.getClasse()] << endl;
+    //int a;
+    //cin >> a;
+}
+
+void Sintatico::printRule(int idxOfRule)
+{
+    cout << rules[idxOfRule] << endl;
+}
+
+bool Sintatico::process()
+{
+    stackClear();
+    stackAdd(0);
+    getNextToken();
+    pair<char, int> movement;
+    char actionType;
+    int actionMove;
+    int stateT;
+
+    while(true){
+        state = stackTop();
+        movement = actionTable[state][terminalSymbolsIdx[token.getClasse()]];
+        actionType = movement.first;
+        actionMove = movement.second;
+        
+        cout << state << " " << token.getClasse() << " " << terminalSymbolsIdx[token.getClasse()] << endl;
+        if (actionType == 'S'){
+            stackAdd(actionMove);
+            getNextToken();
+        }
+        else if (actionType == 'R'){
+            stackPop(rulesSize[actionMove]);
+            stateT = stackTop();
+            stackAdd(gotoTable[stateT][nonTerminalSymbolsIdx[leftOfRules[actionMove]]]);
+            printRule(actionMove);
+        }
+        else if (actionType == 'A'){
+            return true;
+        }
+        else{
+            fixError();
+        }
+    }
+
+    return false;
+}
+
+void Sintatico::fixError()
+{
+    cout << "SINTATICAL ERROR FOUNDED" << endl;
+    int a;
+    cin >> a;
 }
