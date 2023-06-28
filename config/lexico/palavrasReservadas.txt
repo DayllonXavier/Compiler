@@ -7,7 +7,7 @@ se
 entao
 fimse
 repita
-fimRepita
+fimrepita
 fim
 inteiro
 literal

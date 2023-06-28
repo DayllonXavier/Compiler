@@ -21,6 +21,7 @@ class Lexico
         Lexico(string _pathFileProgramaFonte, SymbolTable& _tabelaDeSimbolos);
         ~Lexico();
         Token SCANNER();
+        pair<int, int> getPos();
     private:
         void carregarPalavrasReservadas();
         void abrirProgramaFonte();

@@ -23,7 +23,7 @@
 23 OPRD -> num
 24 A -> COND A
 25 COND -> CAB CP
-26 CAB -> se ab_p EXP_R fc_p então
+26 CAB -> se ab_p EXP_R fc_p entao
 27 EXP_R -> OPRD opr OPRD
 28 CP -> ES CP
 29 CP -> CMD CP

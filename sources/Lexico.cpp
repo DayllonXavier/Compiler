@@ -157,3 +157,8 @@ void Lexico::carregarAutomato()
     }
     file.close();
 }
+
+pair<int, int> Lexico::getPos()
+{
+    return {linha, coluna};
+}

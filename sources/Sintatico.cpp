@@ -180,7 +180,7 @@ void Sintatico::getNextToken()
     while(token.getClasse() == "ERRO"){
         token = analisadorLexico.SCANNER();
     }
-    //cout << state << " " << token.getClasse() << " " << terminalSymbolsIdx[token.getClasse()] << endl;
+    //cout << state << " " << token.getClasse() << " " << terminalSymbolsIdx[token.getClasse()] << " -- " << analisadorLexico.getPos().first << " " << analisadorLexico.getPos().second << endl;
     //int a;
     //cin >> a;
 }
@@ -206,7 +206,7 @@ bool Sintatico::process()
         actionType = movement.first;
         actionMove = movement.second;
         
-        cout << state << " " << token.getClasse() << " " << terminalSymbolsIdx[token.getClasse()] << endl;
+        //cout << state << " " << token.getClasse() << " " << terminalSymbolsIdx[token.getClasse()] << endl;
         if (actionType == 'S'){
             stackAdd(actionMove);
             getNextToken();
