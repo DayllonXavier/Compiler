@@ -230,7 +230,7 @@ bool Sintatico::process()
 
 void Sintatico::fixError()
 {
-    cout << "SINTATICAL ERROR FOUND" << endl;
+    cout << "SYNTAX ERROR FOUND" << endl;
     int a;
     cin >> a;
 }
