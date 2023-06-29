@@ -288,7 +288,8 @@ void LR0Generator::calculate_slrtable()
 void LR0Generator::write_terminal()
 {
     ofstream f;
-    f.open("terminalList.txt");
+    string output_path = path_to_write_output;
+    f.open(output_path.append("terminalList.txt"));
     for(auto t : terminal)
     {
         f << t << endl;
@@ -298,7 +299,8 @@ void LR0Generator::write_terminal()
 void LR0Generator::write_non_terminal()
 {
     ofstream f;
-    f.open("naoTerminalList.txt");
+    string output_path = path_to_write_output;
+    f.open(output_path.append("naoTerminalList.txt"));
     for(auto nt : non_terminal)
     {
         f << nt << endl;
@@ -309,7 +311,8 @@ void LR0Generator::write_non_terminal()
 void LR0Generator::write_action()
 {
     ofstream f;
-    f.open("action.txt");
+    string output_path = path_to_write_output;
+    f.open(output_path.append("action.txt"));
 
     //cout << "       ";
     //for(auto t : terminal)
@@ -338,7 +341,8 @@ void LR0Generator::write_action()
 void LR0Generator::write_goto()
 {
     ofstream f;
-    f.open("goto.txt");
+    string output_path = path_to_write_output;
+    f.open(output_path.append("goto.txt"));
 
     for(auto state : SLRTABLE)
     {
@@ -360,7 +364,8 @@ void LR0Generator::write_goto()
 void LR0Generator::write_sizes()
 {
     ofstream f;
-    f.open("qtd.txt");
+    string output_path = path_to_write_output;
+    f.open(output_path.append("qtd.txt"));
 
     f << states.size() << endl;
     f << terminal.size() << endl;
@@ -373,7 +378,8 @@ void LR0Generator::write_sizes()
 void LR0Generator::write_rule_number_size()
 {
     ofstream f;
-    f.open("rule_size.txt");
+    string output_path = path_to_write_output;
+    f.open(output_path.append("rule_size.txt"));
 
     for(auto rule : rules)
     {
@@ -392,7 +398,8 @@ void LR0Generator::write_rule_number_size()
 void LR0Generator::write_follow()
 {
     ofstream f;
-    f.open("follow.txt");
+    string output_path = path_to_write_output;
+    f.open(output_path.append("follow.txt"));
 
     for(auto nt : non_terminal)
     {

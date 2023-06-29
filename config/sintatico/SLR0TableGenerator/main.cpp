@@ -76,6 +76,13 @@ int main(int argc, char *argv[])
         cout << endl;
     }
 
+    if(argc > 2)
+    {
+        gen.path_to_write_output = string(argv[2]).append("/");
+    }
+
+    cout << "Writing output to " << gen.path_to_write_output << endl;
+
     gen.write_action();
     gen.write_goto();
     gen.write_terminal();
