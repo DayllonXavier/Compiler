@@ -1,0 +1,3 @@
+2
+ab_p_ERROR Abertura de parêntese sobressalente
+fc_p_ERROR Fechamento de parêntese sobressalente

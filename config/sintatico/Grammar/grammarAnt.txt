@@ -37,10 +37,3 @@
 37 CPR -> COND CPR
 38 CPR -> fimrepita
 39 A -> fim
-40 ab_p_ERROR -> ab_p ab_p_ERROR
-41 ab_p_ERROR -> ab_p
-42 fc_p_ERROR -> fc_p fc_p_ERROR
-43 fc_p_ERROR -> fc_p
-44 CAB -> se ab_p ab_p_ERROR EXP_R fc_p entao
-45 CAB -> se ab_p EXP_R fc_p fc_p_ERROR entao
-46 CAB -> se ab_p ab_p_ERROR EXP_R fc_p fc_p_ERROR entao

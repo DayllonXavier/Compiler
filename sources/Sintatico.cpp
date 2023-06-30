@@ -19,6 +19,7 @@ void Sintatico::initSintatico()
     loadNonTerminalSymbols();
     loadActionTable();
     loadGotoTable();
+    loadErrorProductionMessages();
 }
 
 void Sintatico::loadBasicInformations()
@@ -147,6 +148,28 @@ void Sintatico::loadGotoTable()
     file.close();
 }
 
+void Sintatico::loadErrorProductionMessages()
+{
+    int nbErrorProductionMessages;
+    string nonTerminalSymbol, message;
+
+    ifstream file(pathToErrorProductionMessages);
+    assert(file.is_open());
+
+    errorProductionMessages.clear();
+
+    file >> nbErrorProductionMessages;
+    for (int i = 0; i < nbErrorProductionMessages; i++)
+    {
+        file >> nonTerminalSymbol;
+        getline(file, message);
+        errorProductionMessages[nonTerminalSymbol] = message.substr(1, -1);
+        //cout << nonTerminalSymbol << " " << errorProductionMessages[nonTerminalSymbol] << endl;
+    }
+
+    file.close();
+}
+
 void Sintatico::stackAdd(int value)
 {
     automatonStack.push(value);
@@ -215,6 +238,7 @@ bool Sintatico::process()
             stackPop(rulesSize[actionMove]);
             stateT = stackTop();
             stackAdd(gotoTable[stateT][nonTerminalSymbolsIdx[leftOfRules[actionMove]]]);
+            fixErrorProductions(actionMove);
             printRule(actionMove);
         }
         else if (actionType == 'A'){
@@ -233,4 +257,13 @@ void Sintatico::fixError()
     cout << "SYNTAX ERROR FOUND" << endl;
     int a;
     cin >> a;
+}
+
+void Sintatico::fixErrorProductions(int ruleIdx)
+{
+    if (errorProductionMessages.count(leftOfRules[ruleIdx])){
+        pair<int, int> lineAndCol = analisadorLexico.getPos();
+        cout << "SYNTAX ERROR FOUND on line " << lineAndCol.first << " and column " << lineAndCol.second << endl;
+        cout << "\t" << errorProductionMessages[leftOfRules[ruleIdx]] << endl; 
+    }
 }
