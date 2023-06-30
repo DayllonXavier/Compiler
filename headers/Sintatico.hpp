@@ -62,7 +62,9 @@ class Sintatico
         map<string, string> errorProductionMessages;
 
         stack<int> automatonStack;
+        stack<pair<int, int>> infoAutomatonStack;
         Token token;
+        pair<int, int> readPos;
         int state, nextState;
 };
 

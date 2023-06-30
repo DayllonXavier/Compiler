@@ -20,6 +20,7 @@ void Sintatico::initSintatico()
     loadActionTable();
     loadGotoTable();
     loadErrorProductionMessages();
+    readPos = {0, 0};
 }
 
 void Sintatico::loadBasicInformations()
@@ -173,6 +174,7 @@ void Sintatico::loadErrorProductionMessages()
 void Sintatico::stackAdd(int value)
 {
     automatonStack.push(value);
+    infoAutomatonStack.push(readPos);
     //cout << "add " << value << endl;
 }
 
@@ -183,6 +185,7 @@ void Sintatico::stackPop(int nbOfPop)
         //cout << "pop ";
         //cout << automatonStack.top() << endl;
         automatonStack.pop();
+        infoAutomatonStack.pop();
     }
 }
 
@@ -194,6 +197,7 @@ int Sintatico::stackTop()
 void Sintatico::stackClear(){
     while (!automatonStack.empty()){
         automatonStack.pop();
+        infoAutomatonStack.pop();
     }
 }
 
@@ -203,6 +207,7 @@ void Sintatico::getNextToken()
     while(token.getClasse() == "ERRO"){
         token = analisadorLexico.SCANNER();
     }
+    readPos = analisadorLexico.getPos();
     //cout << state << " " << token.getClasse() << " " << terminalSymbolsIdx[token.getClasse()] << " -- " << analisadorLexico.getPos().first << " " << analisadorLexico.getPos().second << endl;
     //int a;
     //cin >> a;
@@ -236,16 +241,17 @@ bool Sintatico::process()
         }
         else if (actionType == 'R'){
             stackPop(rulesSize[actionMove]);
-            stateT = stackTop();
-            stackAdd(gotoTable[stateT][nonTerminalSymbolsIdx[leftOfRules[actionMove]]]);
             fixErrorProductions(actionMove);
             printRule(actionMove);
+            stateT = stackTop();
+            stackAdd(gotoTable[stateT][nonTerminalSymbolsIdx[leftOfRules[actionMove]]]);
         }
         else if (actionType == 'A'){
             return true;
         }
         else{
             fixError();
+            break;
         }
     }
 
@@ -254,16 +260,13 @@ bool Sintatico::process()
 
 void Sintatico::fixError()
 {
-    cout << "SYNTAX ERROR FOUND" << endl;
-    int a;
-    cin >> a;
+    cout << "SYNTAX ERROR FOUND on line " << infoAutomatonStack.top().first << " and column " << infoAutomatonStack.top().second << endl;
 }
 
 void Sintatico::fixErrorProductions(int ruleIdx)
 {
     if (errorProductionMessages.count(leftOfRules[ruleIdx])){
-        pair<int, int> lineAndCol = analisadorLexico.getPos();
-        cout << "SYNTAX ERROR FOUND on line " << lineAndCol.first << " and column " << lineAndCol.second << endl;
+        cout << "SYNTAX ERROR FOUND on line " << infoAutomatonStack.top().first << " and column " << infoAutomatonStack.top().second << endl;
         cout << "\t" << errorProductionMessages[leftOfRules[ruleIdx]] << endl; 
     }
 }
