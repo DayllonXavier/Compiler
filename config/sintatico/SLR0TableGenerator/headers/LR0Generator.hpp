@@ -43,6 +43,7 @@ class LR0Generator {
 
         map<int,map<string,string>> SLRTABLE;
         void calculate_slrtable();
+        void add_to_slrtable(int state_number, string token, string value);
 
         string path_to_write_output = "./";
 

@@ -17,6 +17,11 @@ void State::addRule(Rule rule)
     rules.push_back(rule);
     if(rule.isReduction())
     {
+        if(reduce())
+        {
+            cout << "ERROR: CONFLICT REDUCE " << reduce_rule << " REDUCE " << rule.number << " INSIDE STATE " << number << endl;
+            exit(1);
+        }
         reduce_rule = rule.number;
     }
 }

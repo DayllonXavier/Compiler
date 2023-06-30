@@ -244,6 +244,23 @@ void LR0Generator::calculate_follow()
     }
 }
 
+void LR0Generator::add_to_slrtable(int state_number, string token, string value)
+{
+     if(value == "A 0")
+     {
+         cout << "SOFT WARNING:TABLE[" << state_number << "][" << token << "] ALREADY HAS A VALUE, ";
+         cout << "VALUE = " << SLRTABLE[state_number][token] << " TRYING TO ADD " << value << endl;
+     }
+     else if(SLRTABLE[state_number][token] != "")
+     {
+         cout << "ERROR: TABLE[" << state_number << "][" << token << "] ALREADY HAS A VALUE, ";
+         cout << "VALUE = " << SLRTABLE[state_number][token] << " TRYING TO ADD " << value << endl;
+         exit(2);
+     }
+
+     SLRTABLE[state_number][token] = value;
+}
+
 void LR0Generator::calculate_slrtable()
 {
      for(auto state : states)
@@ -262,12 +279,12 @@ void LR0Generator::calculate_slrtable()
 
              for(auto t : follow[r.left])
              {
-                 SLRTABLE[state.number][t] = string("R ").append(to_string(state.reduce_rule));
+                 add_to_slrtable(state.number, t, string("R ").append(to_string(state.reduce_rule)));
              }
 
              if(r.number == 1)
              {
-                 SLRTABLE[state.number]["EOF"] = "A 0";
+                 add_to_slrtable(state.number, "EOF", "A 0");
              }
          }
 
@@ -275,9 +292,9 @@ void LR0Generator::calculate_slrtable()
          {
              if(terminal.find(transition.first) != terminal.end())
              {
-                 SLRTABLE[state.number][transition.first] = string("S ").append(to_string(transition.second));
+                 add_to_slrtable(state.number, transition.first, string("S ").append(to_string(transition.second))); 
              }else{
-                 SLRTABLE[state.number][transition.first] = to_string(transition.second);
+                 add_to_slrtable(state.number, transition.first, to_string(transition.second));
              }
          }
 
