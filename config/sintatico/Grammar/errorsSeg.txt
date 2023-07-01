@@ -1,0 +1,30 @@
+53 D -> TIPO_ERROR
+54 TIPO_ERROR -> L pt_v
+
+55 L -> vir_L_ERROR
+56 vir_L_ERROR -> id L
+
+91 R -> fimrepita_ERROR
+92 fimrepita_ERROR -> CABR
+
+93 D -> pt_v_ERROR_2
+94 pt_v_ERROR_2 -> TIPO L
+
+99 CMD -> pt_v_ERROR_5
+100 pt_v_ERROR_5 -> id rcb LD
+
+91 LV -> pt_v_ERROR_1
+92 pt_v_ERROR_1 -> varfim
+
+99 CP -> fimse_ERROR_2
+100 fimse_ERROR_2 -> ES
+101 CP -> fimse_ERROR_3
+102 fimse_ERROR_3 -> CMD
+101 CP -> fimse_ERROR_4
+102 fimse_ERROR_4 -> COND
+
+99 P inicio fim_ERROR_1
+100 fim_ERROR_1 V
+
+77 COND fimse_ERROR
+78 fimse_ERROR -> CAB

@@ -4,12 +4,51 @@ Depth 0
 Rules: 
 (1) P' -> .P
 (2) P -> .inicio V A
+(47) P -> .inicio_ERROR
+(48) inicio_ERROR -> .V A
+(3) V -> .varinicio LV
+(49) V -> .varinicio_ERROR
+(50) varinicio_ERROR -> .LV
+(4) LV -> .D LV
+(5) LV -> .varfim pt_v
+(51) LV -> .varfim_ERROR
+(6) D -> .TIPO L pt_v
+(52) varfim_ERROR -> .pt_v
+(9) TIPO -> .inteiro
+(10) TIPO -> .real
+(11) TIPO -> .literal
 Closures: 
 P
 inicio
+inicio_ERROR
+V
+varinicio
+varinicio_ERROR
+LV
+D
+varfim
+varfim_ERROR
+TIPO
+pt_v
+inteiro
+real
+literal
 Transitions: 
 (P,1)
 (inicio,2)
+(inicio_ERROR,3)
+(V,4)
+(varinicio,5)
+(varinicio_ERROR,6)
+(LV,7)
+(D,8)
+(varfim,9)
+(varfim_ERROR,10)
+(TIPO,11)
+(pt_v,12)
+(inteiro,13)
+(real,14)
+(literal,15)
 
 State 1
 Depth 1
@@ -23,14 +62,269 @@ Depth 1
 Rules: 
 (2) P -> inicio .V A
 (3) V -> .varinicio LV
+(49) V -> .varinicio_ERROR
+(50) varinicio_ERROR -> .LV
+(4) LV -> .D LV
+(5) LV -> .varfim pt_v
+(51) LV -> .varfim_ERROR
+(6) D -> .TIPO L pt_v
+(52) varfim_ERROR -> .pt_v
+(9) TIPO -> .inteiro
+(10) TIPO -> .real
+(11) TIPO -> .literal
 Closures: 
 V
 varinicio
+varinicio_ERROR
+LV
+D
+varfim
+varfim_ERROR
+TIPO
+pt_v
+inteiro
+real
+literal
 Transitions: 
-(V,3)
-(varinicio,4)
+(V,16)
+(varinicio,5)
+(varinicio_ERROR,6)
+(LV,7)
+(D,8)
+(varfim,9)
+(varfim_ERROR,10)
+(TIPO,11)
+(pt_v,12)
+(inteiro,13)
+(real,14)
+(literal,15)
 
 State 3
+Depth 1
+Rules: 
+(47) P -> inicio_ERROR.
+Closures: 
+Transitions: 
+
+State 4
+Depth 1
+Rules: 
+(48) inicio_ERROR -> V .A
+(12) A -> .ES A
+(18) A -> .CMD A
+(24) A -> .COND A
+(32) A -> .R A
+(39) A -> .fim
+(13) ES -> .leia id pt_v
+(14) ES -> .escreva ARG pt_v
+(57) ES -> .leia id_before_pt_v_ERROR
+(59) ES -> .escreva id_before_pt_v_ERROR
+(95) ES -> .pt_v_ERROR_3
+(97) ES -> .pt_v_ERROR_4
+(19) CMD -> .id rcb LD pt_v
+(60) CMD -> .id_CMD_ERROR
+(62) CMD -> .id rcb_ERROR
+(64) CMD -> .id rcb LD_ERROR
+(25) COND -> .CAB CP
+(33) R -> .CABR CPR
+(96) pt_v_ERROR_3 -> .leia id
+(98) pt_v_ERROR_4 -> .escreva ARG
+(61) id_CMD_ERROR -> .rcb LD pt_v
+(26) CAB -> .se ab_p EXP_R fc_p entao
+(44) CAB -> .se ab_p ab_p_ERROR EXP_R fc_p entao
+(45) CAB -> .se ab_p EXP_R fc_p fc_p_ERROR entao
+(46) CAB -> .se ab_p ab_p_ERROR EXP_R fc_p fc_p_ERROR entao
+(69) CAB -> .se ab_p_missing_ERROR
+(71) CAB -> .se ab_p EXP_R fc_p_missing_ERROR
+(73) CAB -> .se ab_p EXP_R_ERROR
+(75) CAB -> .entao_ERROR
+(90) CAB -> .se ab_p_fc_p_ERROR entao
+(34) CABR -> .repita ab_p EXP_R fc_p
+(79) CABR -> .repita ab_p ab_p_ERROR EXP_R fc_p
+(80) CABR -> .repita ab_p EXP_R fc_p fc_p_ERROR
+(81) CABR -> .repita ab_p ab_p_ERROR EXP_R fc_p fc_p_ERROR
+(82) CABR -> .repita ab_p_repita_missing_ERROR
+(84) CABR -> .repita ab_p fc_p_repita_missing_ERROR
+(86) CABR -> .repita ab_p EXP_R_repita_ERROR
+(88) CABR -> .repita ab_p_fc_p_ERROR 
+(76) entao_ERROR -> .se ab_p EXP_R fc_p
+Closures: 
+A
+ES
+CMD
+COND
+R
+fim
+leia
+escreva
+pt_v_ERROR_3
+pt_v_ERROR_4
+id
+id_CMD_ERROR
+CAB
+CABR
+rcb
+se
+entao_ERROR
+repita
+Transitions: 
+(A,17)
+(ES,18)
+(CMD,19)
+(COND,20)
+(R,21)
+(fim,22)
+(leia,23)
+(escreva,24)
+(pt_v_ERROR_3,25)
+(pt_v_ERROR_4,26)
+(id,27)
+(id_CMD_ERROR,28)
+(CAB,29)
+(CABR,30)
+(rcb,31)
+(se,32)
+(entao_ERROR,33)
+(repita,34)
+
+State 5
+Depth 1
+Rules: 
+(3) V -> varinicio .LV
+(4) LV -> .D LV
+(5) LV -> .varfim pt_v
+(51) LV -> .varfim_ERROR
+(6) D -> .TIPO L pt_v
+(52) varfim_ERROR -> .pt_v
+(9) TIPO -> .inteiro
+(10) TIPO -> .real
+(11) TIPO -> .literal
+Closures: 
+LV
+D
+varfim
+varfim_ERROR
+TIPO
+pt_v
+inteiro
+real
+literal
+Transitions: 
+(LV,35)
+(D,8)
+(varfim,9)
+(varfim_ERROR,10)
+(TIPO,11)
+(pt_v,12)
+(inteiro,13)
+(real,14)
+(literal,15)
+
+State 6
+Depth 1
+Rules: 
+(49) V -> varinicio_ERROR.
+Closures: 
+Transitions: 
+
+State 7
+Depth 1
+Rules: 
+(50) varinicio_ERROR -> LV.
+Closures: 
+Transitions: 
+
+State 8
+Depth 1
+Rules: 
+(4) LV -> D .LV
+(4) LV -> .D LV
+(5) LV -> .varfim pt_v
+(51) LV -> .varfim_ERROR
+(6) D -> .TIPO L pt_v
+(52) varfim_ERROR -> .pt_v
+(9) TIPO -> .inteiro
+(10) TIPO -> .real
+(11) TIPO -> .literal
+Closures: 
+LV
+D
+varfim
+varfim_ERROR
+TIPO
+pt_v
+inteiro
+real
+literal
+Transitions: 
+(LV,36)
+(D,8)
+(varfim,9)
+(varfim_ERROR,10)
+(TIPO,11)
+(pt_v,12)
+(inteiro,13)
+(real,14)
+(literal,15)
+
+State 9
+Depth 1
+Rules: 
+(5) LV -> varfim .pt_v
+Closures: 
+pt_v
+Transitions: 
+(pt_v,37)
+
+State 10
+Depth 1
+Rules: 
+(51) LV -> varfim_ERROR.
+Closures: 
+Transitions: 
+
+State 11
+Depth 1
+Rules: 
+(6) D -> TIPO .L pt_v
+(7) L -> .id vir L
+(8) L -> .id
+Closures: 
+L
+id
+Transitions: 
+(L,38)
+(id,39)
+
+State 12
+Depth 1
+Rules: 
+(52) varfim_ERROR -> pt_v.
+Closures: 
+Transitions: 
+
+State 13
+Depth 1
+Rules: 
+(9) TIPO -> inteiro.
+Closures: 
+Transitions: 
+
+State 14
+Depth 1
+Rules: 
+(10) TIPO -> real.
+Closures: 
+Transitions: 
+
+State 15
+Depth 1
+Rules: 
+(11) TIPO -> literal.
+Closures: 
+Transitions: 
+
+State 16
 Depth 2
 Rules: 
 (2) P -> inicio V .A
@@ -41,14 +335,37 @@ Rules:
 (39) A -> .fim
 (13) ES -> .leia id pt_v
 (14) ES -> .escreva ARG pt_v
+(57) ES -> .leia id_before_pt_v_ERROR
+(59) ES -> .escreva id_before_pt_v_ERROR
+(95) ES -> .pt_v_ERROR_3
+(97) ES -> .pt_v_ERROR_4
 (19) CMD -> .id rcb LD pt_v
+(60) CMD -> .id_CMD_ERROR
+(62) CMD -> .id rcb_ERROR
+(64) CMD -> .id rcb LD_ERROR
 (25) COND -> .CAB CP
 (33) R -> .CABR CPR
+(96) pt_v_ERROR_3 -> .leia id
+(98) pt_v_ERROR_4 -> .escreva ARG
+(61) id_CMD_ERROR -> .rcb LD pt_v
 (26) CAB -> .se ab_p EXP_R fc_p entao
 (44) CAB -> .se ab_p ab_p_ERROR EXP_R fc_p entao
 (45) CAB -> .se ab_p EXP_R fc_p fc_p_ERROR entao
 (46) CAB -> .se ab_p ab_p_ERROR EXP_R fc_p fc_p_ERROR entao
+(69) CAB -> .se ab_p_missing_ERROR
+(71) CAB -> .se ab_p EXP_R fc_p_missing_ERROR
+(73) CAB -> .se ab_p EXP_R_ERROR
+(75) CAB -> .entao_ERROR
+(90) CAB -> .se ab_p_fc_p_ERROR entao
 (34) CABR -> .repita ab_p EXP_R fc_p
+(79) CABR -> .repita ab_p ab_p_ERROR EXP_R fc_p
+(80) CABR -> .repita ab_p EXP_R fc_p fc_p_ERROR
+(81) CABR -> .repita ab_p ab_p_ERROR EXP_R fc_p fc_p_ERROR
+(82) CABR -> .repita ab_p_repita_missing_ERROR
+(84) CABR -> .repita ab_p fc_p_repita_missing_ERROR
+(86) CABR -> .repita ab_p EXP_R_repita_ERROR
+(88) CABR -> .repita ab_p_fc_p_ERROR 
+(76) entao_ERROR -> .se ab_p EXP_R fc_p
 Closures: 
 A
 ES
@@ -58,62 +375,45 @@ R
 fim
 leia
 escreva
+pt_v_ERROR_3
+pt_v_ERROR_4
 id
+id_CMD_ERROR
 CAB
 CABR
+rcb
 se
+entao_ERROR
 repita
 Transitions: 
-(A,5)
-(ES,6)
-(CMD,7)
-(COND,8)
-(R,9)
-(fim,10)
-(leia,11)
-(escreva,12)
-(id,13)
-(CAB,14)
-(CABR,15)
-(se,16)
-(repita,17)
+(A,40)
+(ES,18)
+(CMD,19)
+(COND,20)
+(R,21)
+(fim,22)
+(leia,23)
+(escreva,24)
+(pt_v_ERROR_3,25)
+(pt_v_ERROR_4,26)
+(id,27)
+(id_CMD_ERROR,28)
+(CAB,29)
+(CABR,30)
+(rcb,31)
+(se,32)
+(entao_ERROR,33)
+(repita,34)
 
-State 4
+State 17
 Depth 2
 Rules: 
-(3) V -> varinicio .LV
-(4) LV -> .D LV
-(5) LV -> .varfim pt_v
-(6) D -> .TIPO L pt_v
-(9) TIPO -> .inteiro
-(10) TIPO -> .real
-(11) TIPO -> .literal
-Closures: 
-LV
-D
-varfim
-TIPO
-inteiro
-real
-literal
-Transitions: 
-(LV,18)
-(D,19)
-(varfim,20)
-(TIPO,21)
-(inteiro,22)
-(real,23)
-(literal,24)
-
-State 5
-Depth 3
-Rules: 
-(2) P -> inicio V A.
+(48) inicio_ERROR -> V A.
 Closures: 
 Transitions: 
 
-State 6
-Depth 3
+State 18
+Depth 2
 Rules: 
 (12) A -> ES .A
 (12) A -> .ES A
@@ -123,14 +423,37 @@ Rules:
 (39) A -> .fim
 (13) ES -> .leia id pt_v
 (14) ES -> .escreva ARG pt_v
+(57) ES -> .leia id_before_pt_v_ERROR
+(59) ES -> .escreva id_before_pt_v_ERROR
+(95) ES -> .pt_v_ERROR_3
+(97) ES -> .pt_v_ERROR_4
 (19) CMD -> .id rcb LD pt_v
+(60) CMD -> .id_CMD_ERROR
+(62) CMD -> .id rcb_ERROR
+(64) CMD -> .id rcb LD_ERROR
 (25) COND -> .CAB CP
 (33) R -> .CABR CPR
+(96) pt_v_ERROR_3 -> .leia id
+(98) pt_v_ERROR_4 -> .escreva ARG
+(61) id_CMD_ERROR -> .rcb LD pt_v
 (26) CAB -> .se ab_p EXP_R fc_p entao
 (44) CAB -> .se ab_p ab_p_ERROR EXP_R fc_p entao
 (45) CAB -> .se ab_p EXP_R fc_p fc_p_ERROR entao
 (46) CAB -> .se ab_p ab_p_ERROR EXP_R fc_p fc_p_ERROR entao
+(69) CAB -> .se ab_p_missing_ERROR
+(71) CAB -> .se ab_p EXP_R fc_p_missing_ERROR
+(73) CAB -> .se ab_p EXP_R_ERROR
+(75) CAB -> .entao_ERROR
+(90) CAB -> .se ab_p_fc_p_ERROR entao
 (34) CABR -> .repita ab_p EXP_R fc_p
+(79) CABR -> .repita ab_p ab_p_ERROR EXP_R fc_p
+(80) CABR -> .repita ab_p EXP_R fc_p fc_p_ERROR
+(81) CABR -> .repita ab_p ab_p_ERROR EXP_R fc_p fc_p_ERROR
+(82) CABR -> .repita ab_p_repita_missing_ERROR
+(84) CABR -> .repita ab_p fc_p_repita_missing_ERROR
+(86) CABR -> .repita ab_p EXP_R_repita_ERROR
+(88) CABR -> .repita ab_p_fc_p_ERROR 
+(76) entao_ERROR -> .se ab_p EXP_R fc_p
 Closures: 
 A
 ES
@@ -140,28 +463,38 @@ R
 fim
 leia
 escreva
+pt_v_ERROR_3
+pt_v_ERROR_4
 id
+id_CMD_ERROR
 CAB
 CABR
+rcb
 se
+entao_ERROR
 repita
 Transitions: 
-(A,25)
-(ES,6)
-(CMD,7)
-(COND,8)
-(R,9)
-(fim,10)
-(leia,11)
-(escreva,12)
-(id,13)
-(CAB,14)
-(CABR,15)
-(se,16)
-(repita,17)
+(A,41)
+(ES,18)
+(CMD,19)
+(COND,20)
+(R,21)
+(fim,22)
+(leia,23)
+(escreva,24)
+(pt_v_ERROR_3,25)
+(pt_v_ERROR_4,26)
+(id,27)
+(id_CMD_ERROR,28)
+(CAB,29)
+(CABR,30)
+(rcb,31)
+(se,32)
+(entao_ERROR,33)
+(repita,34)
 
-State 7
-Depth 3
+State 19
+Depth 2
 Rules: 
 (18) A -> CMD .A
 (12) A -> .ES A
@@ -171,14 +504,37 @@ Rules:
 (39) A -> .fim
 (13) ES -> .leia id pt_v
 (14) ES -> .escreva ARG pt_v
+(57) ES -> .leia id_before_pt_v_ERROR
+(59) ES -> .escreva id_before_pt_v_ERROR
+(95) ES -> .pt_v_ERROR_3
+(97) ES -> .pt_v_ERROR_4
 (19) CMD -> .id rcb LD pt_v
+(60) CMD -> .id_CMD_ERROR
+(62) CMD -> .id rcb_ERROR
+(64) CMD -> .id rcb LD_ERROR
 (25) COND -> .CAB CP
 (33) R -> .CABR CPR
+(96) pt_v_ERROR_3 -> .leia id
+(98) pt_v_ERROR_4 -> .escreva ARG
+(61) id_CMD_ERROR -> .rcb LD pt_v
 (26) CAB -> .se ab_p EXP_R fc_p entao
 (44) CAB -> .se ab_p ab_p_ERROR EXP_R fc_p entao
 (45) CAB -> .se ab_p EXP_R fc_p fc_p_ERROR entao
 (46) CAB -> .se ab_p ab_p_ERROR EXP_R fc_p fc_p_ERROR entao
+(69) CAB -> .se ab_p_missing_ERROR
+(71) CAB -> .se ab_p EXP_R fc_p_missing_ERROR
+(73) CAB -> .se ab_p EXP_R_ERROR
+(75) CAB -> .entao_ERROR
+(90) CAB -> .se ab_p_fc_p_ERROR entao
 (34) CABR -> .repita ab_p EXP_R fc_p
+(79) CABR -> .repita ab_p ab_p_ERROR EXP_R fc_p
+(80) CABR -> .repita ab_p EXP_R fc_p fc_p_ERROR
+(81) CABR -> .repita ab_p ab_p_ERROR EXP_R fc_p fc_p_ERROR
+(82) CABR -> .repita ab_p_repita_missing_ERROR
+(84) CABR -> .repita ab_p fc_p_repita_missing_ERROR
+(86) CABR -> .repita ab_p EXP_R_repita_ERROR
+(88) CABR -> .repita ab_p_fc_p_ERROR 
+(76) entao_ERROR -> .se ab_p EXP_R fc_p
 Closures: 
 A
 ES
@@ -188,28 +544,38 @@ R
 fim
 leia
 escreva
+pt_v_ERROR_3
+pt_v_ERROR_4
 id
+id_CMD_ERROR
 CAB
 CABR
+rcb
 se
+entao_ERROR
 repita
 Transitions: 
-(A,26)
-(ES,6)
-(CMD,7)
-(COND,8)
-(R,9)
-(fim,10)
-(leia,11)
-(escreva,12)
-(id,13)
-(CAB,14)
-(CABR,15)
-(se,16)
-(repita,17)
+(A,42)
+(ES,18)
+(CMD,19)
+(COND,20)
+(R,21)
+(fim,22)
+(leia,23)
+(escreva,24)
+(pt_v_ERROR_3,25)
+(pt_v_ERROR_4,26)
+(id,27)
+(id_CMD_ERROR,28)
+(CAB,29)
+(CABR,30)
+(rcb,31)
+(se,32)
+(entao_ERROR,33)
+(repita,34)
 
-State 8
-Depth 3
+State 20
+Depth 2
 Rules: 
 (24) A -> COND .A
 (12) A -> .ES A
@@ -219,14 +585,37 @@ Rules:
 (39) A -> .fim
 (13) ES -> .leia id pt_v
 (14) ES -> .escreva ARG pt_v
+(57) ES -> .leia id_before_pt_v_ERROR
+(59) ES -> .escreva id_before_pt_v_ERROR
+(95) ES -> .pt_v_ERROR_3
+(97) ES -> .pt_v_ERROR_4
 (19) CMD -> .id rcb LD pt_v
+(60) CMD -> .id_CMD_ERROR
+(62) CMD -> .id rcb_ERROR
+(64) CMD -> .id rcb LD_ERROR
 (25) COND -> .CAB CP
 (33) R -> .CABR CPR
+(96) pt_v_ERROR_3 -> .leia id
+(98) pt_v_ERROR_4 -> .escreva ARG
+(61) id_CMD_ERROR -> .rcb LD pt_v
 (26) CAB -> .se ab_p EXP_R fc_p entao
 (44) CAB -> .se ab_p ab_p_ERROR EXP_R fc_p entao
 (45) CAB -> .se ab_p EXP_R fc_p fc_p_ERROR entao
 (46) CAB -> .se ab_p ab_p_ERROR EXP_R fc_p fc_p_ERROR entao
+(69) CAB -> .se ab_p_missing_ERROR
+(71) CAB -> .se ab_p EXP_R fc_p_missing_ERROR
+(73) CAB -> .se ab_p EXP_R_ERROR
+(75) CAB -> .entao_ERROR
+(90) CAB -> .se ab_p_fc_p_ERROR entao
 (34) CABR -> .repita ab_p EXP_R fc_p
+(79) CABR -> .repita ab_p ab_p_ERROR EXP_R fc_p
+(80) CABR -> .repita ab_p EXP_R fc_p fc_p_ERROR
+(81) CABR -> .repita ab_p ab_p_ERROR EXP_R fc_p fc_p_ERROR
+(82) CABR -> .repita ab_p_repita_missing_ERROR
+(84) CABR -> .repita ab_p fc_p_repita_missing_ERROR
+(86) CABR -> .repita ab_p EXP_R_repita_ERROR
+(88) CABR -> .repita ab_p_fc_p_ERROR 
+(76) entao_ERROR -> .se ab_p EXP_R fc_p
 Closures: 
 A
 ES
@@ -236,28 +625,38 @@ R
 fim
 leia
 escreva
+pt_v_ERROR_3
+pt_v_ERROR_4
 id
+id_CMD_ERROR
 CAB
 CABR
+rcb
 se
+entao_ERROR
 repita
 Transitions: 
-(A,27)
-(ES,6)
-(CMD,7)
-(COND,8)
-(R,9)
-(fim,10)
-(leia,11)
-(escreva,12)
-(id,13)
-(CAB,14)
-(CABR,15)
-(se,16)
-(repita,17)
+(A,43)
+(ES,18)
+(CMD,19)
+(COND,20)
+(R,21)
+(fim,22)
+(leia,23)
+(escreva,24)
+(pt_v_ERROR_3,25)
+(pt_v_ERROR_4,26)
+(id,27)
+(id_CMD_ERROR,28)
+(CAB,29)
+(CABR,30)
+(rcb,31)
+(se,32)
+(entao_ERROR,33)
+(repita,34)
 
-State 9
-Depth 3
+State 21
+Depth 2
 Rules: 
 (32) A -> R .A
 (12) A -> .ES A
@@ -267,14 +666,37 @@ Rules:
 (39) A -> .fim
 (13) ES -> .leia id pt_v
 (14) ES -> .escreva ARG pt_v
+(57) ES -> .leia id_before_pt_v_ERROR
+(59) ES -> .escreva id_before_pt_v_ERROR
+(95) ES -> .pt_v_ERROR_3
+(97) ES -> .pt_v_ERROR_4
 (19) CMD -> .id rcb LD pt_v
+(60) CMD -> .id_CMD_ERROR
+(62) CMD -> .id rcb_ERROR
+(64) CMD -> .id rcb LD_ERROR
 (25) COND -> .CAB CP
 (33) R -> .CABR CPR
+(96) pt_v_ERROR_3 -> .leia id
+(98) pt_v_ERROR_4 -> .escreva ARG
+(61) id_CMD_ERROR -> .rcb LD pt_v
 (26) CAB -> .se ab_p EXP_R fc_p entao
 (44) CAB -> .se ab_p ab_p_ERROR EXP_R fc_p entao
 (45) CAB -> .se ab_p EXP_R fc_p fc_p_ERROR entao
 (46) CAB -> .se ab_p ab_p_ERROR EXP_R fc_p fc_p_ERROR entao
+(69) CAB -> .se ab_p_missing_ERROR
+(71) CAB -> .se ab_p EXP_R fc_p_missing_ERROR
+(73) CAB -> .se ab_p EXP_R_ERROR
+(75) CAB -> .entao_ERROR
+(90) CAB -> .se ab_p_fc_p_ERROR entao
 (34) CABR -> .repita ab_p EXP_R fc_p
+(79) CABR -> .repita ab_p ab_p_ERROR EXP_R fc_p
+(80) CABR -> .repita ab_p EXP_R fc_p fc_p_ERROR
+(81) CABR -> .repita ab_p ab_p_ERROR EXP_R fc_p fc_p_ERROR
+(82) CABR -> .repita ab_p_repita_missing_ERROR
+(84) CABR -> .repita ab_p fc_p_repita_missing_ERROR
+(86) CABR -> .repita ab_p EXP_R_repita_ERROR
+(88) CABR -> .repita ab_p_fc_p_ERROR 
+(76) entao_ERROR -> .se ab_p EXP_R fc_p
 Closures: 
 A
 ES
@@ -284,71 +706,137 @@ R
 fim
 leia
 escreva
+pt_v_ERROR_3
+pt_v_ERROR_4
 id
+id_CMD_ERROR
 CAB
 CABR
+rcb
 se
+entao_ERROR
 repita
 Transitions: 
-(A,28)
-(ES,6)
-(CMD,7)
-(COND,8)
-(R,9)
-(fim,10)
-(leia,11)
-(escreva,12)
-(id,13)
-(CAB,14)
-(CABR,15)
-(se,16)
-(repita,17)
+(A,44)
+(ES,18)
+(CMD,19)
+(COND,20)
+(R,21)
+(fim,22)
+(leia,23)
+(escreva,24)
+(pt_v_ERROR_3,25)
+(pt_v_ERROR_4,26)
+(id,27)
+(id_CMD_ERROR,28)
+(CAB,29)
+(CABR,30)
+(rcb,31)
+(se,32)
+(entao_ERROR,33)
+(repita,34)
 
-State 10
-Depth 3
+State 22
+Depth 2
 Rules: 
 (39) A -> fim.
 Closures: 
 Transitions: 
 
-State 11
-Depth 3
+State 23
+Depth 2
 Rules: 
 (13) ES -> leia .id pt_v
+(57) ES -> leia .id_before_pt_v_ERROR
+(96) pt_v_ERROR_3 -> leia .id
+(58) id_before_pt_v_ERROR -> .pt_v
 Closures: 
 id
+id_before_pt_v_ERROR
+pt_v
 Transitions: 
-(id,29)
+(id,45)
+(id_before_pt_v_ERROR,46)
+(pt_v,47)
 
-State 12
-Depth 3
+State 24
+Depth 2
 Rules: 
 (14) ES -> escreva .ARG pt_v
+(59) ES -> escreva .id_before_pt_v_ERROR
+(98) pt_v_ERROR_4 -> escreva .ARG
 (15) ARG -> .lit
 (16) ARG -> .num
 (17) ARG -> .id
+(58) id_before_pt_v_ERROR -> .pt_v
 Closures: 
 ARG
+id_before_pt_v_ERROR
 lit
 num
 id
+pt_v
 Transitions: 
-(ARG,30)
-(lit,31)
-(num,32)
-(id,33)
+(ARG,48)
+(id_before_pt_v_ERROR,49)
+(lit,50)
+(num,51)
+(id,52)
+(pt_v,47)
 
-State 13
-Depth 3
+State 25
+Depth 2
+Rules: 
+(95) ES -> pt_v_ERROR_3.
+Closures: 
+Transitions: 
+
+State 26
+Depth 2
+Rules: 
+(97) ES -> pt_v_ERROR_4.
+Closures: 
+Transitions: 
+
+State 27
+Depth 2
 Rules: 
 (19) CMD -> id .rcb LD pt_v
+(62) CMD -> id .rcb_ERROR
+(64) CMD -> id .rcb LD_ERROR
+(63) rcb_ERROR -> .LD pt_v 
+(20) LD -> .OPRD opm OPRD
+(21) LD -> .OPRD
+(66) LD -> .operator_ERROR
+(22) OPRD -> .id
+(23) OPRD -> .num
+(68) operator_ERROR -> .OPRD OPRD
 Closures: 
 rcb
+rcb_ERROR
+LD
+OPRD
+operator_ERROR
+id
+num
 Transitions: 
-(rcb,34)
+(rcb,53)
+(rcb_ERROR,54)
+(LD,55)
+(OPRD,56)
+(operator_ERROR,57)
+(id,58)
+(num,59)
 
-State 14
-Depth 3
+State 28
+Depth 2
+Rules: 
+(60) CMD -> id_CMD_ERROR.
+Closures: 
+Transitions: 
+
+State 29
+Depth 2
 Rules: 
 (25) COND -> CAB .CP
 (28) CP -> .ES CP
@@ -357,12 +845,28 @@ Rules:
 (31) CP -> .fimse
 (13) ES -> .leia id pt_v
 (14) ES -> .escreva ARG pt_v
+(57) ES -> .leia id_before_pt_v_ERROR
+(59) ES -> .escreva id_before_pt_v_ERROR
+(95) ES -> .pt_v_ERROR_3
+(97) ES -> .pt_v_ERROR_4
 (19) CMD -> .id rcb LD pt_v
+(60) CMD -> .id_CMD_ERROR
+(62) CMD -> .id rcb_ERROR
+(64) CMD -> .id rcb LD_ERROR
 (25) COND -> .CAB CP
+(96) pt_v_ERROR_3 -> .leia id
+(98) pt_v_ERROR_4 -> .escreva ARG
+(61) id_CMD_ERROR -> .rcb LD pt_v
 (26) CAB -> .se ab_p EXP_R fc_p entao
 (44) CAB -> .se ab_p ab_p_ERROR EXP_R fc_p entao
 (45) CAB -> .se ab_p EXP_R fc_p fc_p_ERROR entao
 (46) CAB -> .se ab_p ab_p_ERROR EXP_R fc_p fc_p_ERROR entao
+(69) CAB -> .se ab_p_missing_ERROR
+(71) CAB -> .se ab_p EXP_R fc_p_missing_ERROR
+(73) CAB -> .se ab_p EXP_R_ERROR
+(75) CAB -> .entao_ERROR
+(90) CAB -> .se ab_p_fc_p_ERROR entao
+(76) entao_ERROR -> .se ab_p EXP_R fc_p
 Closures: 
 CP
 ES
@@ -371,23 +875,33 @@ COND
 fimse
 leia
 escreva
+pt_v_ERROR_3
+pt_v_ERROR_4
 id
+id_CMD_ERROR
 CAB
+rcb
 se
+entao_ERROR
 Transitions: 
-(CP,35)
-(ES,36)
-(CMD,37)
-(COND,38)
-(fimse,39)
-(leia,11)
-(escreva,12)
-(id,13)
-(CAB,14)
-(se,16)
+(CP,60)
+(ES,61)
+(CMD,62)
+(COND,63)
+(fimse,64)
+(leia,23)
+(escreva,24)
+(pt_v_ERROR_3,25)
+(pt_v_ERROR_4,26)
+(id,27)
+(id_CMD_ERROR,28)
+(CAB,29)
+(rcb,31)
+(se,32)
+(entao_ERROR,33)
 
-State 15
-Depth 3
+State 30
+Depth 2
 Rules: 
 (33) R -> CABR .CPR
 (35) CPR -> .ES CPR
@@ -396,12 +910,28 @@ Rules:
 (38) CPR -> .fimrepita
 (13) ES -> .leia id pt_v
 (14) ES -> .escreva ARG pt_v
+(57) ES -> .leia id_before_pt_v_ERROR
+(59) ES -> .escreva id_before_pt_v_ERROR
+(95) ES -> .pt_v_ERROR_3
+(97) ES -> .pt_v_ERROR_4
 (19) CMD -> .id rcb LD pt_v
+(60) CMD -> .id_CMD_ERROR
+(62) CMD -> .id rcb_ERROR
+(64) CMD -> .id rcb LD_ERROR
 (25) COND -> .CAB CP
+(96) pt_v_ERROR_3 -> .leia id
+(98) pt_v_ERROR_4 -> .escreva ARG
+(61) id_CMD_ERROR -> .rcb LD pt_v
 (26) CAB -> .se ab_p EXP_R fc_p entao
 (44) CAB -> .se ab_p ab_p_ERROR EXP_R fc_p entao
 (45) CAB -> .se ab_p EXP_R fc_p fc_p_ERROR entao
 (46) CAB -> .se ab_p ab_p_ERROR EXP_R fc_p fc_p_ERROR entao
+(69) CAB -> .se ab_p_missing_ERROR
+(71) CAB -> .se ab_p EXP_R fc_p_missing_ERROR
+(73) CAB -> .se ab_p EXP_R_ERROR
+(75) CAB -> .entao_ERROR
+(90) CAB -> .se ab_p_fc_p_ERROR entao
+(76) entao_ERROR -> .se ab_p EXP_R fc_p
 Closures: 
 CPR
 ES
@@ -410,214 +940,367 @@ COND
 fimrepita
 leia
 escreva
+pt_v_ERROR_3
+pt_v_ERROR_4
 id
+id_CMD_ERROR
 CAB
+rcb
 se
+entao_ERROR
 Transitions: 
-(CPR,40)
-(ES,41)
-(CMD,42)
-(COND,43)
-(fimrepita,44)
-(leia,11)
-(escreva,12)
-(id,13)
-(CAB,14)
-(se,16)
+(CPR,65)
+(ES,66)
+(CMD,67)
+(COND,68)
+(fimrepita,69)
+(leia,23)
+(escreva,24)
+(pt_v_ERROR_3,25)
+(pt_v_ERROR_4,26)
+(id,27)
+(id_CMD_ERROR,28)
+(CAB,29)
+(rcb,31)
+(se,32)
+(entao_ERROR,33)
 
-State 16
-Depth 3
+State 31
+Depth 2
+Rules: 
+(61) id_CMD_ERROR -> rcb .LD pt_v
+(20) LD -> .OPRD opm OPRD
+(21) LD -> .OPRD
+(66) LD -> .operator_ERROR
+(22) OPRD -> .id
+(23) OPRD -> .num
+(68) operator_ERROR -> .OPRD OPRD
+Closures: 
+LD
+OPRD
+operator_ERROR
+id
+num
+Transitions: 
+(LD,70)
+(OPRD,56)
+(operator_ERROR,57)
+(id,58)
+(num,59)
+
+State 32
+Depth 2
 Rules: 
 (26) CAB -> se .ab_p EXP_R fc_p entao
 (44) CAB -> se .ab_p ab_p_ERROR EXP_R fc_p entao
 (45) CAB -> se .ab_p EXP_R fc_p fc_p_ERROR entao
 (46) CAB -> se .ab_p ab_p_ERROR EXP_R fc_p fc_p_ERROR entao
+(69) CAB -> se .ab_p_missing_ERROR
+(71) CAB -> se .ab_p EXP_R fc_p_missing_ERROR
+(73) CAB -> se .ab_p EXP_R_ERROR
+(90) CAB -> se .ab_p_fc_p_ERROR entao
+(76) entao_ERROR -> se .ab_p EXP_R fc_p
+(70) ab_p_missing_ERROR -> .EXP_R fc_p entao
+(89) ab_p_fc_p_ERROR -> .EXP_R
+(27) EXP_R -> .OPRD opr OPRD
+(67) EXP_R -> .operator_ERROR
+(22) OPRD -> .id
+(23) OPRD -> .num
+(68) operator_ERROR -> .OPRD OPRD
 Closures: 
 ab_p
+ab_p_missing_ERROR
+ab_p_fc_p_ERROR
+EXP_R
+OPRD
+operator_ERROR
+id
+num
 Transitions: 
-(ab_p,45)
+(ab_p,71)
+(ab_p_missing_ERROR,72)
+(ab_p_fc_p_ERROR,73)
+(EXP_R,74)
+(OPRD,75)
+(operator_ERROR,76)
+(id,58)
+(num,59)
 
-State 17
-Depth 3
+State 33
+Depth 2
+Rules: 
+(75) CAB -> entao_ERROR.
+Closures: 
+Transitions: 
+
+State 34
+Depth 2
 Rules: 
 (34) CABR -> repita .ab_p EXP_R fc_p
+(79) CABR -> repita .ab_p ab_p_ERROR EXP_R fc_p
+(80) CABR -> repita .ab_p EXP_R fc_p fc_p_ERROR
+(81) CABR -> repita .ab_p ab_p_ERROR EXP_R fc_p fc_p_ERROR
+(82) CABR -> repita .ab_p_repita_missing_ERROR
+(84) CABR -> repita .ab_p fc_p_repita_missing_ERROR
+(86) CABR -> repita .ab_p EXP_R_repita_ERROR
+(88) CABR -> repita .ab_p_fc_p_ERROR 
+(83) ab_p_repita_missing_ERROR -> .EXP_R fc_p
+(89) ab_p_fc_p_ERROR -> .EXP_R
+(27) EXP_R -> .OPRD opr OPRD
+(67) EXP_R -> .operator_ERROR
+(22) OPRD -> .id
+(23) OPRD -> .num
+(68) operator_ERROR -> .OPRD OPRD
 Closures: 
 ab_p
+ab_p_repita_missing_ERROR
+ab_p_fc_p_ERROR
+EXP_R
+OPRD
+operator_ERROR
+id
+num
 Transitions: 
-(ab_p,46)
+(ab_p,77)
+(ab_p_repita_missing_ERROR,78)
+(ab_p_fc_p_ERROR,79)
+(EXP_R,80)
+(OPRD,75)
+(operator_ERROR,76)
+(id,58)
+(num,59)
 
-State 18
-Depth 3
+State 35
+Depth 2
 Rules: 
 (3) V -> varinicio LV.
 Closures: 
 Transitions: 
 
-State 19
-Depth 3
+State 36
+Depth 2
 Rules: 
-(4) LV -> D .LV
-(4) LV -> .D LV
-(5) LV -> .varfim pt_v
-(6) D -> .TIPO L pt_v
-(9) TIPO -> .inteiro
-(10) TIPO -> .real
-(11) TIPO -> .literal
+(4) LV -> D LV.
 Closures: 
-LV
-D
-varfim
-TIPO
-inteiro
-real
-literal
 Transitions: 
-(LV,47)
-(D,19)
-(varfim,20)
-(TIPO,21)
-(inteiro,22)
-(real,23)
-(literal,24)
 
-State 20
-Depth 3
+State 37
+Depth 2
 Rules: 
-(5) LV -> varfim .pt_v
+(5) LV -> varfim pt_v.
+Closures: 
+Transitions: 
+
+State 38
+Depth 2
+Rules: 
+(6) D -> TIPO L .pt_v
 Closures: 
 pt_v
 Transitions: 
-(pt_v,48)
+(pt_v,81)
 
-State 21
-Depth 3
+State 39
+Depth 2
 Rules: 
-(6) D -> TIPO .L pt_v
-(7) L -> .id vir L
-(8) L -> .id
+(7) L -> id .vir L
+(8) L -> id.
 Closures: 
-L
-id
+vir
 Transitions: 
-(L,49)
-(id,50)
+(vir,82)
 
-State 22
+State 40
 Depth 3
 Rules: 
-(9) TIPO -> inteiro.
+(2) P -> inicio V A.
 Closures: 
 Transitions: 
 
-State 23
+State 41
 Depth 3
-Rules: 
-(10) TIPO -> real.
-Closures: 
-Transitions: 
-
-State 24
-Depth 3
-Rules: 
-(11) TIPO -> literal.
-Closures: 
-Transitions: 
-
-State 25
-Depth 4
 Rules: 
 (12) A -> ES A.
 Closures: 
 Transitions: 
 
-State 26
-Depth 4
+State 42
+Depth 3
 Rules: 
 (18) A -> CMD A.
 Closures: 
 Transitions: 
 
-State 27
-Depth 4
+State 43
+Depth 3
 Rules: 
 (24) A -> COND A.
 Closures: 
 Transitions: 
 
-State 28
-Depth 4
+State 44
+Depth 3
 Rules: 
 (32) A -> R A.
 Closures: 
 Transitions: 
 
-State 29
-Depth 4
+State 45
+Depth 3
 Rules: 
 (13) ES -> leia id .pt_v
+(96) pt_v_ERROR_3 -> leia id.
 Closures: 
 pt_v
 Transitions: 
-(pt_v,51)
+(pt_v,83)
 
-State 30
-Depth 4
+State 46
+Depth 3
+Rules: 
+(57) ES -> leia id_before_pt_v_ERROR.
+Closures: 
+Transitions: 
+
+State 47
+Depth 3
+Rules: 
+(58) id_before_pt_v_ERROR -> pt_v.
+Closures: 
+Transitions: 
+
+State 48
+Depth 3
 Rules: 
 (14) ES -> escreva ARG .pt_v
+(98) pt_v_ERROR_4 -> escreva ARG.
 Closures: 
 pt_v
 Transitions: 
-(pt_v,52)
+(pt_v,84)
 
-State 31
-Depth 4
+State 49
+Depth 3
+Rules: 
+(59) ES -> escreva id_before_pt_v_ERROR.
+Closures: 
+Transitions: 
+
+State 50
+Depth 3
 Rules: 
 (15) ARG -> lit.
 Closures: 
 Transitions: 
 
-State 32
-Depth 4
+State 51
+Depth 3
 Rules: 
 (16) ARG -> num.
 Closures: 
 Transitions: 
 
-State 33
-Depth 4
+State 52
+Depth 3
 Rules: 
 (17) ARG -> id.
 Closures: 
 Transitions: 
 
-State 34
-Depth 4
+State 53
+Depth 3
 Rules: 
 (19) CMD -> id rcb .LD pt_v
+(64) CMD -> id rcb .LD_ERROR
 (20) LD -> .OPRD opm OPRD
 (21) LD -> .OPRD
+(66) LD -> .operator_ERROR
+(65) LD_ERROR -> .pt_v
+(22) OPRD -> .id
+(23) OPRD -> .num
+(68) operator_ERROR -> .OPRD OPRD
+Closures: 
+LD
+LD_ERROR
+OPRD
+operator_ERROR
+pt_v
+id
+num
+Transitions: 
+(LD,85)
+(LD_ERROR,86)
+(OPRD,56)
+(operator_ERROR,57)
+(pt_v,87)
+(id,58)
+(num,59)
+
+State 54
+Depth 3
+Rules: 
+(62) CMD -> id rcb_ERROR.
+Closures: 
+Transitions: 
+
+State 55
+Depth 3
+Rules: 
+(63) rcb_ERROR -> LD .pt_v 
+Closures: 
+pt_v
+Transitions: 
+(pt_v,88)
+
+State 56
+Depth 3
+Rules: 
+(20) LD -> OPRD .opm OPRD
+(21) LD -> OPRD.
+(68) operator_ERROR -> OPRD .OPRD
 (22) OPRD -> .id
 (23) OPRD -> .num
 Closures: 
-LD
+opm
 OPRD
 id
 num
 Transitions: 
-(LD,53)
-(OPRD,54)
-(id,55)
-(num,56)
+(opm,89)
+(OPRD,90)
+(id,58)
+(num,59)
 
-State 35
-Depth 4
+State 57
+Depth 3
+Rules: 
+(66) LD -> operator_ERROR.
+Closures: 
+Transitions: 
+
+State 58
+Depth 3
+Rules: 
+(22) OPRD -> id.
+Closures: 
+Transitions: 
+
+State 59
+Depth 3
+Rules: 
+(23) OPRD -> num.
+Closures: 
+Transitions: 
+
+State 60
+Depth 3
 Rules: 
 (25) COND -> CAB CP.
 Closures: 
 Transitions: 
 
-State 36
-Depth 4
+State 61
+Depth 3
 Rules: 
 (28) CP -> ES .CP
 (28) CP -> .ES CP
@@ -626,12 +1309,28 @@ Rules:
 (31) CP -> .fimse
 (13) ES -> .leia id pt_v
 (14) ES -> .escreva ARG pt_v
+(57) ES -> .leia id_before_pt_v_ERROR
+(59) ES -> .escreva id_before_pt_v_ERROR
+(95) ES -> .pt_v_ERROR_3
+(97) ES -> .pt_v_ERROR_4
 (19) CMD -> .id rcb LD pt_v
+(60) CMD -> .id_CMD_ERROR
+(62) CMD -> .id rcb_ERROR
+(64) CMD -> .id rcb LD_ERROR
 (25) COND -> .CAB CP
+(96) pt_v_ERROR_3 -> .leia id
+(98) pt_v_ERROR_4 -> .escreva ARG
+(61) id_CMD_ERROR -> .rcb LD pt_v
 (26) CAB -> .se ab_p EXP_R fc_p entao
 (44) CAB -> .se ab_p ab_p_ERROR EXP_R fc_p entao
 (45) CAB -> .se ab_p EXP_R fc_p fc_p_ERROR entao
 (46) CAB -> .se ab_p ab_p_ERROR EXP_R fc_p fc_p_ERROR entao
+(69) CAB -> .se ab_p_missing_ERROR
+(71) CAB -> .se ab_p EXP_R fc_p_missing_ERROR
+(73) CAB -> .se ab_p EXP_R_ERROR
+(75) CAB -> .entao_ERROR
+(90) CAB -> .se ab_p_fc_p_ERROR entao
+(76) entao_ERROR -> .se ab_p EXP_R fc_p
 Closures: 
 CP
 ES
@@ -640,23 +1339,33 @@ COND
 fimse
 leia
 escreva
+pt_v_ERROR_3
+pt_v_ERROR_4
 id
+id_CMD_ERROR
 CAB
+rcb
 se
+entao_ERROR
 Transitions: 
-(CP,57)
-(ES,36)
-(CMD,37)
-(COND,38)
-(fimse,39)
-(leia,11)
-(escreva,12)
-(id,13)
-(CAB,14)
-(se,16)
+(CP,91)
+(ES,61)
+(CMD,62)
+(COND,63)
+(fimse,64)
+(leia,23)
+(escreva,24)
+(pt_v_ERROR_3,25)
+(pt_v_ERROR_4,26)
+(id,27)
+(id_CMD_ERROR,28)
+(CAB,29)
+(rcb,31)
+(se,32)
+(entao_ERROR,33)
 
-State 37
-Depth 4
+State 62
+Depth 3
 Rules: 
 (29) CP -> CMD .CP
 (28) CP -> .ES CP
@@ -665,12 +1374,28 @@ Rules:
 (31) CP -> .fimse
 (13) ES -> .leia id pt_v
 (14) ES -> .escreva ARG pt_v
+(57) ES -> .leia id_before_pt_v_ERROR
+(59) ES -> .escreva id_before_pt_v_ERROR
+(95) ES -> .pt_v_ERROR_3
+(97) ES -> .pt_v_ERROR_4
 (19) CMD -> .id rcb LD pt_v
+(60) CMD -> .id_CMD_ERROR
+(62) CMD -> .id rcb_ERROR
+(64) CMD -> .id rcb LD_ERROR
 (25) COND -> .CAB CP
+(96) pt_v_ERROR_3 -> .leia id
+(98) pt_v_ERROR_4 -> .escreva ARG
+(61) id_CMD_ERROR -> .rcb LD pt_v
 (26) CAB -> .se ab_p EXP_R fc_p entao
 (44) CAB -> .se ab_p ab_p_ERROR EXP_R fc_p entao
 (45) CAB -> .se ab_p EXP_R fc_p fc_p_ERROR entao
 (46) CAB -> .se ab_p ab_p_ERROR EXP_R fc_p fc_p_ERROR entao
+(69) CAB -> .se ab_p_missing_ERROR
+(71) CAB -> .se ab_p EXP_R fc_p_missing_ERROR
+(73) CAB -> .se ab_p EXP_R_ERROR
+(75) CAB -> .entao_ERROR
+(90) CAB -> .se ab_p_fc_p_ERROR entao
+(76) entao_ERROR -> .se ab_p EXP_R fc_p
 Closures: 
 CP
 ES
@@ -679,23 +1404,33 @@ COND
 fimse
 leia
 escreva
+pt_v_ERROR_3
+pt_v_ERROR_4
 id
+id_CMD_ERROR
 CAB
+rcb
 se
+entao_ERROR
 Transitions: 
-(CP,58)
-(ES,36)
-(CMD,37)
-(COND,38)
-(fimse,39)
-(leia,11)
-(escreva,12)
-(id,13)
-(CAB,14)
-(se,16)
+(CP,92)
+(ES,61)
+(CMD,62)
+(COND,63)
+(fimse,64)
+(leia,23)
+(escreva,24)
+(pt_v_ERROR_3,25)
+(pt_v_ERROR_4,26)
+(id,27)
+(id_CMD_ERROR,28)
+(CAB,29)
+(rcb,31)
+(se,32)
+(entao_ERROR,33)
 
-State 38
-Depth 4
+State 63
+Depth 3
 Rules: 
 (30) CP -> COND .CP
 (28) CP -> .ES CP
@@ -704,12 +1439,28 @@ Rules:
 (31) CP -> .fimse
 (13) ES -> .leia id pt_v
 (14) ES -> .escreva ARG pt_v
+(57) ES -> .leia id_before_pt_v_ERROR
+(59) ES -> .escreva id_before_pt_v_ERROR
+(95) ES -> .pt_v_ERROR_3
+(97) ES -> .pt_v_ERROR_4
 (19) CMD -> .id rcb LD pt_v
+(60) CMD -> .id_CMD_ERROR
+(62) CMD -> .id rcb_ERROR
+(64) CMD -> .id rcb LD_ERROR
 (25) COND -> .CAB CP
+(96) pt_v_ERROR_3 -> .leia id
+(98) pt_v_ERROR_4 -> .escreva ARG
+(61) id_CMD_ERROR -> .rcb LD pt_v
 (26) CAB -> .se ab_p EXP_R fc_p entao
 (44) CAB -> .se ab_p ab_p_ERROR EXP_R fc_p entao
 (45) CAB -> .se ab_p EXP_R fc_p fc_p_ERROR entao
 (46) CAB -> .se ab_p ab_p_ERROR EXP_R fc_p fc_p_ERROR entao
+(69) CAB -> .se ab_p_missing_ERROR
+(71) CAB -> .se ab_p EXP_R fc_p_missing_ERROR
+(73) CAB -> .se ab_p EXP_R_ERROR
+(75) CAB -> .entao_ERROR
+(90) CAB -> .se ab_p_fc_p_ERROR entao
+(76) entao_ERROR -> .se ab_p EXP_R fc_p
 Closures: 
 CP
 ES
@@ -718,37 +1469,47 @@ COND
 fimse
 leia
 escreva
+pt_v_ERROR_3
+pt_v_ERROR_4
 id
+id_CMD_ERROR
 CAB
+rcb
 se
+entao_ERROR
 Transitions: 
-(CP,59)
-(ES,36)
-(CMD,37)
-(COND,38)
-(fimse,39)
-(leia,11)
-(escreva,12)
-(id,13)
-(CAB,14)
-(se,16)
+(CP,93)
+(ES,61)
+(CMD,62)
+(COND,63)
+(fimse,64)
+(leia,23)
+(escreva,24)
+(pt_v_ERROR_3,25)
+(pt_v_ERROR_4,26)
+(id,27)
+(id_CMD_ERROR,28)
+(CAB,29)
+(rcb,31)
+(se,32)
+(entao_ERROR,33)
 
-State 39
-Depth 4
+State 64
+Depth 3
 Rules: 
 (31) CP -> fimse.
 Closures: 
 Transitions: 
 
-State 40
-Depth 4
+State 65
+Depth 3
 Rules: 
 (33) R -> CABR CPR.
 Closures: 
 Transitions: 
 
-State 41
-Depth 4
+State 66
+Depth 3
 Rules: 
 (35) CPR -> ES .CPR
 (35) CPR -> .ES CPR
@@ -757,12 +1518,28 @@ Rules:
 (38) CPR -> .fimrepita
 (13) ES -> .leia id pt_v
 (14) ES -> .escreva ARG pt_v
+(57) ES -> .leia id_before_pt_v_ERROR
+(59) ES -> .escreva id_before_pt_v_ERROR
+(95) ES -> .pt_v_ERROR_3
+(97) ES -> .pt_v_ERROR_4
 (19) CMD -> .id rcb LD pt_v
+(60) CMD -> .id_CMD_ERROR
+(62) CMD -> .id rcb_ERROR
+(64) CMD -> .id rcb LD_ERROR
 (25) COND -> .CAB CP
+(96) pt_v_ERROR_3 -> .leia id
+(98) pt_v_ERROR_4 -> .escreva ARG
+(61) id_CMD_ERROR -> .rcb LD pt_v
 (26) CAB -> .se ab_p EXP_R fc_p entao
 (44) CAB -> .se ab_p ab_p_ERROR EXP_R fc_p entao
 (45) CAB -> .se ab_p EXP_R fc_p fc_p_ERROR entao
 (46) CAB -> .se ab_p ab_p_ERROR EXP_R fc_p fc_p_ERROR entao
+(69) CAB -> .se ab_p_missing_ERROR
+(71) CAB -> .se ab_p EXP_R fc_p_missing_ERROR
+(73) CAB -> .se ab_p EXP_R_ERROR
+(75) CAB -> .entao_ERROR
+(90) CAB -> .se ab_p_fc_p_ERROR entao
+(76) entao_ERROR -> .se ab_p EXP_R fc_p
 Closures: 
 CPR
 ES
@@ -771,23 +1548,33 @@ COND
 fimrepita
 leia
 escreva
+pt_v_ERROR_3
+pt_v_ERROR_4
 id
+id_CMD_ERROR
 CAB
+rcb
 se
+entao_ERROR
 Transitions: 
-(CPR,60)
-(ES,41)
-(CMD,42)
-(COND,43)
-(fimrepita,44)
-(leia,11)
-(escreva,12)
-(id,13)
-(CAB,14)
-(se,16)
+(CPR,94)
+(ES,66)
+(CMD,67)
+(COND,68)
+(fimrepita,69)
+(leia,23)
+(escreva,24)
+(pt_v_ERROR_3,25)
+(pt_v_ERROR_4,26)
+(id,27)
+(id_CMD_ERROR,28)
+(CAB,29)
+(rcb,31)
+(se,32)
+(entao_ERROR,33)
 
-State 42
-Depth 4
+State 67
+Depth 3
 Rules: 
 (36) CPR -> CMD .CPR
 (35) CPR -> .ES CPR
@@ -796,12 +1583,28 @@ Rules:
 (38) CPR -> .fimrepita
 (13) ES -> .leia id pt_v
 (14) ES -> .escreva ARG pt_v
+(57) ES -> .leia id_before_pt_v_ERROR
+(59) ES -> .escreva id_before_pt_v_ERROR
+(95) ES -> .pt_v_ERROR_3
+(97) ES -> .pt_v_ERROR_4
 (19) CMD -> .id rcb LD pt_v
+(60) CMD -> .id_CMD_ERROR
+(62) CMD -> .id rcb_ERROR
+(64) CMD -> .id rcb LD_ERROR
 (25) COND -> .CAB CP
+(96) pt_v_ERROR_3 -> .leia id
+(98) pt_v_ERROR_4 -> .escreva ARG
+(61) id_CMD_ERROR -> .rcb LD pt_v
 (26) CAB -> .se ab_p EXP_R fc_p entao
 (44) CAB -> .se ab_p ab_p_ERROR EXP_R fc_p entao
 (45) CAB -> .se ab_p EXP_R fc_p fc_p_ERROR entao
 (46) CAB -> .se ab_p ab_p_ERROR EXP_R fc_p fc_p_ERROR entao
+(69) CAB -> .se ab_p_missing_ERROR
+(71) CAB -> .se ab_p EXP_R fc_p_missing_ERROR
+(73) CAB -> .se ab_p EXP_R_ERROR
+(75) CAB -> .entao_ERROR
+(90) CAB -> .se ab_p_fc_p_ERROR entao
+(76) entao_ERROR -> .se ab_p EXP_R fc_p
 Closures: 
 CPR
 ES
@@ -810,23 +1613,33 @@ COND
 fimrepita
 leia
 escreva
+pt_v_ERROR_3
+pt_v_ERROR_4
 id
+id_CMD_ERROR
 CAB
+rcb
 se
+entao_ERROR
 Transitions: 
-(CPR,61)
-(ES,41)
-(CMD,42)
-(COND,43)
-(fimrepita,44)
-(leia,11)
-(escreva,12)
-(id,13)
-(CAB,14)
-(se,16)
+(CPR,95)
+(ES,66)
+(CMD,67)
+(COND,68)
+(fimrepita,69)
+(leia,23)
+(escreva,24)
+(pt_v_ERROR_3,25)
+(pt_v_ERROR_4,26)
+(id,27)
+(id_CMD_ERROR,28)
+(CAB,29)
+(rcb,31)
+(se,32)
+(entao_ERROR,33)
 
-State 43
-Depth 4
+State 68
+Depth 3
 Rules: 
 (37) CPR -> COND .CPR
 (35) CPR -> .ES CPR
@@ -835,12 +1648,28 @@ Rules:
 (38) CPR -> .fimrepita
 (13) ES -> .leia id pt_v
 (14) ES -> .escreva ARG pt_v
+(57) ES -> .leia id_before_pt_v_ERROR
+(59) ES -> .escreva id_before_pt_v_ERROR
+(95) ES -> .pt_v_ERROR_3
+(97) ES -> .pt_v_ERROR_4
 (19) CMD -> .id rcb LD pt_v
+(60) CMD -> .id_CMD_ERROR
+(62) CMD -> .id rcb_ERROR
+(64) CMD -> .id rcb LD_ERROR
 (25) COND -> .CAB CP
+(96) pt_v_ERROR_3 -> .leia id
+(98) pt_v_ERROR_4 -> .escreva ARG
+(61) id_CMD_ERROR -> .rcb LD pt_v
 (26) CAB -> .se ab_p EXP_R fc_p entao
 (44) CAB -> .se ab_p ab_p_ERROR EXP_R fc_p entao
 (45) CAB -> .se ab_p EXP_R fc_p fc_p_ERROR entao
 (46) CAB -> .se ab_p ab_p_ERROR EXP_R fc_p fc_p_ERROR entao
+(69) CAB -> .se ab_p_missing_ERROR
+(71) CAB -> .se ab_p EXP_R fc_p_missing_ERROR
+(73) CAB -> .se ab_p EXP_R_ERROR
+(75) CAB -> .entao_ERROR
+(90) CAB -> .se ab_p_fc_p_ERROR entao
+(76) entao_ERROR -> .se ab_p EXP_R fc_p
 Closures: 
 CPR
 ES
@@ -849,265 +1678,211 @@ COND
 fimrepita
 leia
 escreva
+pt_v_ERROR_3
+pt_v_ERROR_4
 id
+id_CMD_ERROR
 CAB
+rcb
 se
+entao_ERROR
 Transitions: 
-(CPR,62)
-(ES,41)
-(CMD,42)
-(COND,43)
-(fimrepita,44)
-(leia,11)
-(escreva,12)
-(id,13)
-(CAB,14)
-(se,16)
+(CPR,96)
+(ES,66)
+(CMD,67)
+(COND,68)
+(fimrepita,69)
+(leia,23)
+(escreva,24)
+(pt_v_ERROR_3,25)
+(pt_v_ERROR_4,26)
+(id,27)
+(id_CMD_ERROR,28)
+(CAB,29)
+(rcb,31)
+(se,32)
+(entao_ERROR,33)
 
-State 44
-Depth 4
+State 69
+Depth 3
 Rules: 
 (38) CPR -> fimrepita.
 Closures: 
 Transitions: 
 
-State 45
-Depth 4
+State 70
+Depth 3
+Rules: 
+(61) id_CMD_ERROR -> rcb LD .pt_v
+Closures: 
+pt_v
+Transitions: 
+(pt_v,97)
+
+State 71
+Depth 3
 Rules: 
 (26) CAB -> se ab_p .EXP_R fc_p entao
 (44) CAB -> se ab_p .ab_p_ERROR EXP_R fc_p entao
 (45) CAB -> se ab_p .EXP_R fc_p fc_p_ERROR entao
 (46) CAB -> se ab_p .ab_p_ERROR EXP_R fc_p fc_p_ERROR entao
+(71) CAB -> se ab_p .EXP_R fc_p_missing_ERROR
+(73) CAB -> se ab_p .EXP_R_ERROR
+(76) entao_ERROR -> se ab_p .EXP_R fc_p
 (27) EXP_R -> .OPRD opr OPRD
+(67) EXP_R -> .operator_ERROR
 (40) ab_p_ERROR -> .ab_p ab_p_ERROR
 (41) ab_p_ERROR -> .ab_p
+(74) EXP_R_ERROR -> .fc_p entao
 (22) OPRD -> .id
 (23) OPRD -> .num
+(68) operator_ERROR -> .OPRD OPRD
 Closures: 
 EXP_R
 ab_p_ERROR
+EXP_R_ERROR
 OPRD
+operator_ERROR
 ab_p
+fc_p
 id
 num
 Transitions: 
-(EXP_R,63)
-(ab_p_ERROR,64)
-(OPRD,65)
-(ab_p,66)
-(id,55)
-(num,56)
+(EXP_R,98)
+(ab_p_ERROR,99)
+(EXP_R_ERROR,100)
+(OPRD,75)
+(operator_ERROR,76)
+(ab_p,101)
+(fc_p,102)
+(id,58)
+(num,59)
 
-State 46
-Depth 4
+State 72
+Depth 3
 Rules: 
-(34) CABR -> repita ab_p .EXP_R fc_p
-(27) EXP_R -> .OPRD opr OPRD
-(22) OPRD -> .id
-(23) OPRD -> .num
-Closures: 
-EXP_R
-OPRD
-id
-num
-Transitions: 
-(EXP_R,67)
-(OPRD,65)
-(id,55)
-(num,56)
-
-State 47
-Depth 4
-Rules: 
-(4) LV -> D LV.
+(69) CAB -> se ab_p_missing_ERROR.
 Closures: 
 Transitions: 
 
-State 48
-Depth 4
+State 73
+Depth 3
 Rules: 
-(5) LV -> varfim pt_v.
+(90) CAB -> se ab_p_fc_p_ERROR .entao
 Closures: 
+entao
 Transitions: 
+(entao,103)
 
-State 49
-Depth 4
+State 74
+Depth 3
 Rules: 
-(6) D -> TIPO L .pt_v
-Closures: 
-pt_v
-Transitions: 
-(pt_v,68)
-
-State 50
-Depth 4
-Rules: 
-(7) L -> id .vir L
-(8) L -> id.
-Closures: 
-vir
-Transitions: 
-(vir,69)
-
-State 51
-Depth 5
-Rules: 
-(13) ES -> leia id pt_v.
-Closures: 
-Transitions: 
-
-State 52
-Depth 5
-Rules: 
-(14) ES -> escreva ARG pt_v.
-Closures: 
-Transitions: 
-
-State 53
-Depth 5
-Rules: 
-(19) CMD -> id rcb LD .pt_v
-Closures: 
-pt_v
-Transitions: 
-(pt_v,70)
-
-State 54
-Depth 5
-Rules: 
-(20) LD -> OPRD .opm OPRD
-(21) LD -> OPRD.
-Closures: 
-opm
-Transitions: 
-(opm,71)
-
-State 55
-Depth 5
-Rules: 
-(22) OPRD -> id.
-Closures: 
-Transitions: 
-
-State 56
-Depth 5
-Rules: 
-(23) OPRD -> num.
-Closures: 
-Transitions: 
-
-State 57
-Depth 5
-Rules: 
-(28) CP -> ES CP.
-Closures: 
-Transitions: 
-
-State 58
-Depth 5
-Rules: 
-(29) CP -> CMD CP.
-Closures: 
-Transitions: 
-
-State 59
-Depth 5
-Rules: 
-(30) CP -> COND CP.
-Closures: 
-Transitions: 
-
-State 60
-Depth 5
-Rules: 
-(35) CPR -> ES CPR.
-Closures: 
-Transitions: 
-
-State 61
-Depth 5
-Rules: 
-(36) CPR -> CMD CPR.
-Closures: 
-Transitions: 
-
-State 62
-Depth 5
-Rules: 
-(37) CPR -> COND CPR.
-Closures: 
-Transitions: 
-
-State 63
-Depth 5
-Rules: 
-(26) CAB -> se ab_p EXP_R .fc_p entao
-(45) CAB -> se ab_p EXP_R .fc_p fc_p_ERROR entao
+(70) ab_p_missing_ERROR -> EXP_R .fc_p entao
+(89) ab_p_fc_p_ERROR -> EXP_R.
 Closures: 
 fc_p
 Transitions: 
-(fc_p,72)
+(fc_p,104)
 
-State 64
-Depth 5
-Rules: 
-(44) CAB -> se ab_p ab_p_ERROR .EXP_R fc_p entao
-(46) CAB -> se ab_p ab_p_ERROR .EXP_R fc_p fc_p_ERROR entao
-(27) EXP_R -> .OPRD opr OPRD
-(22) OPRD -> .id
-(23) OPRD -> .num
-Closures: 
-EXP_R
-OPRD
-id
-num
-Transitions: 
-(EXP_R,73)
-(OPRD,65)
-(id,55)
-(num,56)
-
-State 65
-Depth 5
+State 75
+Depth 3
 Rules: 
 (27) EXP_R -> OPRD .opr OPRD
+(68) operator_ERROR -> OPRD .OPRD
+(22) OPRD -> .id
+(23) OPRD -> .num
 Closures: 
 opr
+OPRD
+id
+num
 Transitions: 
-(opr,74)
+(opr,105)
+(OPRD,90)
+(id,58)
+(num,59)
 
-State 66
-Depth 5
+State 76
+Depth 3
 Rules: 
-(40) ab_p_ERROR -> ab_p .ab_p_ERROR
-(41) ab_p_ERROR -> ab_p.
+(67) EXP_R -> operator_ERROR.
+Closures: 
+Transitions: 
+
+State 77
+Depth 3
+Rules: 
+(34) CABR -> repita ab_p .EXP_R fc_p
+(79) CABR -> repita ab_p .ab_p_ERROR EXP_R fc_p
+(80) CABR -> repita ab_p .EXP_R fc_p fc_p_ERROR
+(81) CABR -> repita ab_p .ab_p_ERROR EXP_R fc_p fc_p_ERROR
+(84) CABR -> repita ab_p .fc_p_repita_missing_ERROR
+(86) CABR -> repita ab_p .EXP_R_repita_ERROR
+(27) EXP_R -> .OPRD opr OPRD
+(67) EXP_R -> .operator_ERROR
 (40) ab_p_ERROR -> .ab_p ab_p_ERROR
 (41) ab_p_ERROR -> .ab_p
+(85) fc_p_repita_missing_ERROR -> .EXP_R
+(87) EXP_R_repita_ERROR -> .fc_p
+(22) OPRD -> .id
+(23) OPRD -> .num
+(68) operator_ERROR -> .OPRD OPRD
 Closures: 
+EXP_R
 ab_p_ERROR
+fc_p_repita_missing_ERROR
+EXP_R_repita_ERROR
+OPRD
+operator_ERROR
 ab_p
+fc_p
+id
+num
 Transitions: 
-(ab_p_ERROR,75)
-(ab_p,66)
+(EXP_R,106)
+(ab_p_ERROR,107)
+(fc_p_repita_missing_ERROR,108)
+(EXP_R_repita_ERROR,109)
+(OPRD,75)
+(operator_ERROR,76)
+(ab_p,101)
+(fc_p,110)
+(id,58)
+(num,59)
 
-State 67
-Depth 5
+State 78
+Depth 3
 Rules: 
-(34) CABR -> repita ab_p EXP_R .fc_p
+(82) CABR -> repita ab_p_repita_missing_ERROR.
+Closures: 
+Transitions: 
+
+State 79
+Depth 3
+Rules: 
+(88) CABR -> repita ab_p_fc_p_ERROR .
+Closures: 
+Transitions: 
+
+State 80
+Depth 3
+Rules: 
+(83) ab_p_repita_missing_ERROR -> EXP_R .fc_p
+(89) ab_p_fc_p_ERROR -> EXP_R.
 Closures: 
 fc_p
 Transitions: 
-(fc_p,76)
+(fc_p,111)
 
-State 68
-Depth 5
+State 81
+Depth 3
 Rules: 
 (6) D -> TIPO L pt_v.
 Closures: 
 Transitions: 
 
-State 69
-Depth 5
+State 82
+Depth 3
 Rules: 
 (7) L -> id vir .L
 (7) L -> .id vir L
@@ -1116,18 +1891,55 @@ Closures:
 L
 id
 Transitions: 
-(L,77)
-(id,50)
+(L,112)
+(id,39)
 
-State 70
-Depth 6
+State 83
+Depth 4
 Rules: 
-(19) CMD -> id rcb LD pt_v.
+(13) ES -> leia id pt_v.
 Closures: 
 Transitions: 
 
-State 71
-Depth 6
+State 84
+Depth 4
+Rules: 
+(14) ES -> escreva ARG pt_v.
+Closures: 
+Transitions: 
+
+State 85
+Depth 4
+Rules: 
+(19) CMD -> id rcb LD .pt_v
+Closures: 
+pt_v
+Transitions: 
+(pt_v,113)
+
+State 86
+Depth 4
+Rules: 
+(64) CMD -> id rcb LD_ERROR.
+Closures: 
+Transitions: 
+
+State 87
+Depth 4
+Rules: 
+(65) LD_ERROR -> pt_v.
+Closures: 
+Transitions: 
+
+State 88
+Depth 4
+Rules: 
+(63) rcb_ERROR -> LD pt_v .
+Closures: 
+Transitions: 
+
+State 89
+Depth 4
 Rules: 
 (20) LD -> OPRD opm .OPRD
 (22) OPRD -> .id
@@ -1137,38 +1949,154 @@ OPRD
 id
 num
 Transitions: 
-(OPRD,78)
-(id,55)
-(num,56)
+(OPRD,114)
+(id,58)
+(num,59)
 
-State 72
-Depth 6
+State 90
+Depth 4
 Rules: 
-(26) CAB -> se ab_p EXP_R fc_p .entao
-(45) CAB -> se ab_p EXP_R fc_p .fc_p_ERROR entao
-(42) fc_p_ERROR -> .fc_p fc_p_ERROR
-(43) fc_p_ERROR -> .fc_p
+(68) operator_ERROR -> OPRD OPRD.
+Closures: 
+Transitions: 
+
+State 91
+Depth 4
+Rules: 
+(28) CP -> ES CP.
+Closures: 
+Transitions: 
+
+State 92
+Depth 4
+Rules: 
+(29) CP -> CMD CP.
+Closures: 
+Transitions: 
+
+State 93
+Depth 4
+Rules: 
+(30) CP -> COND CP.
+Closures: 
+Transitions: 
+
+State 94
+Depth 4
+Rules: 
+(35) CPR -> ES CPR.
+Closures: 
+Transitions: 
+
+State 95
+Depth 4
+Rules: 
+(36) CPR -> CMD CPR.
+Closures: 
+Transitions: 
+
+State 96
+Depth 4
+Rules: 
+(37) CPR -> COND CPR.
+Closures: 
+Transitions: 
+
+State 97
+Depth 4
+Rules: 
+(61) id_CMD_ERROR -> rcb LD pt_v.
+Closures: 
+Transitions: 
+
+State 98
+Depth 4
+Rules: 
+(26) CAB -> se ab_p EXP_R .fc_p entao
+(45) CAB -> se ab_p EXP_R .fc_p fc_p_ERROR entao
+(71) CAB -> se ab_p EXP_R .fc_p_missing_ERROR
+(76) entao_ERROR -> se ab_p EXP_R .fc_p
+(72) fc_p_missing_ERROR -> .entao
+Closures: 
+fc_p
+fc_p_missing_ERROR
+entao
+Transitions: 
+(fc_p,115)
+(fc_p_missing_ERROR,116)
+(entao,117)
+
+State 99
+Depth 4
+Rules: 
+(44) CAB -> se ab_p ab_p_ERROR .EXP_R fc_p entao
+(46) CAB -> se ab_p ab_p_ERROR .EXP_R fc_p fc_p_ERROR entao
+(27) EXP_R -> .OPRD opr OPRD
+(67) EXP_R -> .operator_ERROR
+(22) OPRD -> .id
+(23) OPRD -> .num
+(68) operator_ERROR -> .OPRD OPRD
+Closures: 
+EXP_R
+OPRD
+operator_ERROR
+id
+num
+Transitions: 
+(EXP_R,118)
+(OPRD,75)
+(operator_ERROR,76)
+(id,58)
+(num,59)
+
+State 100
+Depth 4
+Rules: 
+(73) CAB -> se ab_p EXP_R_ERROR.
+Closures: 
+Transitions: 
+
+State 101
+Depth 4
+Rules: 
+(40) ab_p_ERROR -> ab_p .ab_p_ERROR
+(41) ab_p_ERROR -> ab_p.
+(40) ab_p_ERROR -> .ab_p ab_p_ERROR
+(41) ab_p_ERROR -> .ab_p
+Closures: 
+ab_p_ERROR
+ab_p
+Transitions: 
+(ab_p_ERROR,119)
+(ab_p,101)
+
+State 102
+Depth 4
+Rules: 
+(74) EXP_R_ERROR -> fc_p .entao
 Closures: 
 entao
-fc_p_ERROR
-fc_p
 Transitions: 
-(entao,79)
-(fc_p_ERROR,80)
-(fc_p,81)
+(entao,120)
 
-State 73
-Depth 6
+State 103
+Depth 4
 Rules: 
-(44) CAB -> se ab_p ab_p_ERROR EXP_R .fc_p entao
-(46) CAB -> se ab_p ab_p_ERROR EXP_R .fc_p fc_p_ERROR entao
+(90) CAB -> se ab_p_fc_p_ERROR entao.
 Closures: 
-fc_p
 Transitions: 
-(fc_p,82)
 
-State 74
-Depth 6
+State 104
+Depth 4
+Rules: 
+(70) ab_p_missing_ERROR -> EXP_R fc_p .entao
+Closures: 
+entao
+Transitions: 
+(entao,121)
+
+State 105
+Depth 4
 Rules: 
 (27) EXP_R -> OPRD opr .OPRD
 (22) OPRD -> .id
@@ -1178,56 +2106,204 @@ OPRD
 id
 num
 Transitions: 
-(OPRD,83)
-(id,55)
-(num,56)
+(OPRD,122)
+(id,58)
+(num,59)
 
-State 75
-Depth 6
+State 106
+Depth 4
 Rules: 
-(40) ab_p_ERROR -> ab_p ab_p_ERROR.
+(34) CABR -> repita ab_p EXP_R .fc_p
+(80) CABR -> repita ab_p EXP_R .fc_p fc_p_ERROR
+(85) fc_p_repita_missing_ERROR -> EXP_R.
+Closures: 
+fc_p
+Transitions: 
+(fc_p,123)
+
+State 107
+Depth 4
+Rules: 
+(79) CABR -> repita ab_p ab_p_ERROR .EXP_R fc_p
+(81) CABR -> repita ab_p ab_p_ERROR .EXP_R fc_p fc_p_ERROR
+(27) EXP_R -> .OPRD opr OPRD
+(67) EXP_R -> .operator_ERROR
+(22) OPRD -> .id
+(23) OPRD -> .num
+(68) operator_ERROR -> .OPRD OPRD
+Closures: 
+EXP_R
+OPRD
+operator_ERROR
+id
+num
+Transitions: 
+(EXP_R,124)
+(OPRD,75)
+(operator_ERROR,76)
+(id,58)
+(num,59)
+
+State 108
+Depth 4
+Rules: 
+(84) CABR -> repita ab_p fc_p_repita_missing_ERROR.
 Closures: 
 Transitions: 
 
-State 76
-Depth 6
+State 109
+Depth 4
 Rules: 
-(34) CABR -> repita ab_p EXP_R fc_p.
+(86) CABR -> repita ab_p EXP_R_repita_ERROR.
 Closures: 
 Transitions: 
 
-State 77
-Depth 6
+State 110
+Depth 4
+Rules: 
+(87) EXP_R_repita_ERROR -> fc_p.
+Closures: 
+Transitions: 
+
+State 111
+Depth 4
+Rules: 
+(83) ab_p_repita_missing_ERROR -> EXP_R fc_p.
+Closures: 
+Transitions: 
+
+State 112
+Depth 4
 Rules: 
 (7) L -> id vir L.
 Closures: 
 Transitions: 
 
-State 78
-Depth 7
+State 113
+Depth 5
+Rules: 
+(19) CMD -> id rcb LD pt_v.
+Closures: 
+Transitions: 
+
+State 114
+Depth 5
 Rules: 
 (20) LD -> OPRD opm OPRD.
 Closures: 
 Transitions: 
 
-State 79
-Depth 7
+State 115
+Depth 5
+Rules: 
+(26) CAB -> se ab_p EXP_R fc_p .entao
+(45) CAB -> se ab_p EXP_R fc_p .fc_p_ERROR entao
+(76) entao_ERROR -> se ab_p EXP_R fc_p.
+(42) fc_p_ERROR -> .fc_p fc_p_ERROR
+(43) fc_p_ERROR -> .fc_p
+Closures: 
+entao
+fc_p_ERROR
+fc_p
+Transitions: 
+(entao,125)
+(fc_p_ERROR,126)
+(fc_p,127)
+
+State 116
+Depth 5
+Rules: 
+(71) CAB -> se ab_p EXP_R fc_p_missing_ERROR.
+Closures: 
+Transitions: 
+
+State 117
+Depth 5
+Rules: 
+(72) fc_p_missing_ERROR -> entao.
+Closures: 
+Transitions: 
+
+State 118
+Depth 5
+Rules: 
+(44) CAB -> se ab_p ab_p_ERROR EXP_R .fc_p entao
+(46) CAB -> se ab_p ab_p_ERROR EXP_R .fc_p fc_p_ERROR entao
+Closures: 
+fc_p
+Transitions: 
+(fc_p,128)
+
+State 119
+Depth 5
+Rules: 
+(40) ab_p_ERROR -> ab_p ab_p_ERROR.
+Closures: 
+Transitions: 
+
+State 120
+Depth 5
+Rules: 
+(74) EXP_R_ERROR -> fc_p entao.
+Closures: 
+Transitions: 
+
+State 121
+Depth 5
+Rules: 
+(70) ab_p_missing_ERROR -> EXP_R fc_p entao.
+Closures: 
+Transitions: 
+
+State 122
+Depth 5
+Rules: 
+(27) EXP_R -> OPRD opr OPRD.
+Closures: 
+Transitions: 
+
+State 123
+Depth 5
+Rules: 
+(34) CABR -> repita ab_p EXP_R fc_p.
+(80) CABR -> repita ab_p EXP_R fc_p .fc_p_ERROR
+(42) fc_p_ERROR -> .fc_p fc_p_ERROR
+(43) fc_p_ERROR -> .fc_p
+Closures: 
+fc_p_ERROR
+fc_p
+Transitions: 
+(fc_p_ERROR,129)
+(fc_p,127)
+
+State 124
+Depth 5
+Rules: 
+(79) CABR -> repita ab_p ab_p_ERROR EXP_R .fc_p
+(81) CABR -> repita ab_p ab_p_ERROR EXP_R .fc_p fc_p_ERROR
+Closures: 
+fc_p
+Transitions: 
+(fc_p,130)
+
+State 125
+Depth 6
 Rules: 
 (26) CAB -> se ab_p EXP_R fc_p entao.
 Closures: 
 Transitions: 
 
-State 80
-Depth 7
+State 126
+Depth 6
 Rules: 
 (45) CAB -> se ab_p EXP_R fc_p fc_p_ERROR .entao
 Closures: 
 entao
 Transitions: 
-(entao,84)
+(entao,131)
 
-State 81
-Depth 7
+State 127
+Depth 6
 Rules: 
 (42) fc_p_ERROR -> fc_p .fc_p_ERROR
 (43) fc_p_ERROR -> fc_p.
@@ -1237,11 +2313,11 @@ Closures:
 fc_p_ERROR
 fc_p
 Transitions: 
-(fc_p_ERROR,85)
-(fc_p,81)
+(fc_p_ERROR,132)
+(fc_p,127)
 
-State 82
-Depth 7
+State 128
+Depth 6
 Rules: 
 (44) CAB -> se ab_p ab_p_ERROR EXP_R fc_p .entao
 (46) CAB -> se ab_p ab_p_ERROR EXP_R fc_p .fc_p_ERROR entao
@@ -1252,49 +2328,70 @@ entao
 fc_p_ERROR
 fc_p
 Transitions: 
-(entao,86)
-(fc_p_ERROR,87)
-(fc_p,81)
+(entao,133)
+(fc_p_ERROR,134)
+(fc_p,127)
 
-State 83
-Depth 7
+State 129
+Depth 6
 Rules: 
-(27) EXP_R -> OPRD opr OPRD.
+(80) CABR -> repita ab_p EXP_R fc_p fc_p_ERROR.
 Closures: 
 Transitions: 
 
-State 84
-Depth 8
+State 130
+Depth 6
+Rules: 
+(79) CABR -> repita ab_p ab_p_ERROR EXP_R fc_p.
+(81) CABR -> repita ab_p ab_p_ERROR EXP_R fc_p .fc_p_ERROR
+(42) fc_p_ERROR -> .fc_p fc_p_ERROR
+(43) fc_p_ERROR -> .fc_p
+Closures: 
+fc_p_ERROR
+fc_p
+Transitions: 
+(fc_p_ERROR,135)
+(fc_p,127)
+
+State 131
+Depth 7
 Rules: 
 (45) CAB -> se ab_p EXP_R fc_p fc_p_ERROR entao.
 Closures: 
 Transitions: 
 
-State 85
-Depth 8
+State 132
+Depth 7
 Rules: 
 (42) fc_p_ERROR -> fc_p fc_p_ERROR.
 Closures: 
 Transitions: 
 
-State 86
-Depth 8
+State 133
+Depth 7
 Rules: 
 (44) CAB -> se ab_p ab_p_ERROR EXP_R fc_p entao.
 Closures: 
 Transitions: 
 
-State 87
-Depth 8
+State 134
+Depth 7
 Rules: 
 (46) CAB -> se ab_p ab_p_ERROR EXP_R fc_p fc_p_ERROR .entao
 Closures: 
 entao
 Transitions: 
-(entao,88)
+(entao,136)
 
-State 88
-Depth 9
+State 135
+Depth 7
+Rules: 
+(81) CABR -> repita ab_p ab_p_ERROR EXP_R fc_p fc_p_ERROR.
+Closures: 
+Transitions: 
+
+State 136
+Depth 8
 Rules: 
 (46) CAB -> se ab_p ab_p_ERROR EXP_R fc_p fc_p_ERROR entao.
 Closures: 
@@ -1313,8 +2410,11 @@ CPR
 D
 ES
 EXP_R
+EXP_R_ERROR
+EXP_R_repita_ERROR
 L
 LD
+LD_ERROR
 LV
 OPRD
 P
@@ -1323,7 +2423,22 @@ R
 TIPO
 V
 ab_p_ERROR
+ab_p_fc_p_ERROR
+ab_p_missing_ERROR
+ab_p_repita_missing_ERROR
+entao_ERROR
 fc_p_ERROR
+fc_p_missing_ERROR
+fc_p_repita_missing_ERROR
+id_CMD_ERROR
+id_before_pt_v_ERROR
+inicio_ERROR
+operator_ERROR
+pt_v_ERROR_3
+pt_v_ERROR_4
+rcb_ERROR
+varfim_ERROR
+varinicio_ERROR
 Terminal = 
 EOF
 ab_p
@@ -1351,254 +2466,386 @@ varfim
 varinicio
 vir
 First: 
-F(A) = { escreva fim id leia repita se }
+F(A) = { escreva fim id leia rcb repita se }
 F(ARG) = { id lit num }
 F(CAB) = { se }
 F(CABR) = { repita }
-F(CMD) = { id }
+F(CMD) = { id rcb }
 F(COND) = { se }
-F(CP) = { escreva fimse id leia se }
-F(CPR) = { escreva fimrepita id leia se }
+F(CP) = { escreva fimse id leia rcb se }
+F(CPR) = { escreva fimrepita id leia rcb se }
 F(D) = { inteiro literal real }
 F(EOF) = { EOF }
 F(ES) = { escreva leia }
 F(EXP_R) = { id num }
+F(EXP_R_ERROR) = { fc_p }
+F(EXP_R_repita_ERROR) = { fc_p }
 F(L) = { id }
 F(LD) = { id num }
-F(LV) = { inteiro literal real varfim }
+F(LD_ERROR) = { pt_v }
+F(LV) = { inteiro literal pt_v real varfim }
 F(OPRD) = { id num }
-F(P) = { inicio }
-F(P') = { inicio }
+F(P) = { inicio inteiro literal pt_v real varfim varinicio }
+F(P') = { inicio inteiro literal pt_v real varfim varinicio }
 F(R) = { repita }
 F(TIPO) = { inteiro literal real }
-F(V) = { varinicio }
+F(V) = { inteiro literal pt_v real varfim varinicio }
 F(ab_p) = { ab_p }
 F(ab_p_ERROR) = { ab_p }
+F(ab_p_fc_p_ERROR) = { id num }
+F(ab_p_missing_ERROR) = { id num }
+F(ab_p_repita_missing_ERROR) = { id num }
 F(entao) = { entao }
+F(entao_ERROR) = { se }
 F(escreva) = { escreva }
 F(fc_p) = { fc_p }
 F(fc_p_ERROR) = { fc_p }
+F(fc_p_missing_ERROR) = { entao }
+F(fc_p_repita_missing_ERROR) = { id num }
 F(fim) = { fim }
 F(fimrepita) = { fimrepita }
 F(fimse) = { fimse }
 F(id) = { id }
+F(id_CMD_ERROR) = { rcb }
+F(id_before_pt_v_ERROR) = { pt_v }
 F(inicio) = { inicio }
+F(inicio_ERROR) = { inteiro literal pt_v real varfim varinicio }
 F(inteiro) = { inteiro }
 F(leia) = { leia }
 F(lit) = { lit }
 F(literal) = { literal }
 F(num) = { num }
+F(operator_ERROR) = { id num }
 F(opm) = { opm }
 F(opr) = { opr }
 F(pt_v) = { pt_v }
+F(pt_v_ERROR_3) = { leia }
+F(pt_v_ERROR_4) = { escreva }
 F(rcb) = { rcb }
+F(rcb_ERROR) = { id num }
 F(real) = { real }
 F(repita) = { repita }
 F(se) = { se }
 F(varfim) = { varfim }
+F(varfim_ERROR) = { pt_v }
 F(varinicio) = { varinicio }
+F(varinicio_ERROR) = { inteiro literal pt_v real varfim }
 F(vir) = { vir }
 Follow: 
 FW(A) = { EOF }
-FW(ARG) = { pt_v }
-FW(CAB) = { escreva fimse id leia se }
-FW(CABR) = { escreva fimrepita id leia se }
-FW(CMD) = { escreva fim fimrepita fimse id leia repita se }
-FW(COND) = { escreva fim fimrepita fimse id leia repita se }
-FW(CP) = { escreva fim fimrepita fimse id leia repita se }
-FW(CPR) = { escreva fim id leia repita se }
-FW(D) = { inteiro literal real varfim }
-FW(ES) = { escreva fim fimrepita fimse id leia repita se }
-FW(EXP_R) = { fc_p }
+FW(ARG) = { escreva fim fimrepita fimse id leia pt_v rcb repita se }
+FW(CAB) = { escreva fimse id leia rcb se }
+FW(CABR) = { escreva fimrepita id leia rcb se }
+FW(CMD) = { escreva fim fimrepita fimse id leia rcb repita se }
+FW(COND) = { escreva fim fimrepita fimse id leia rcb repita se }
+FW(CP) = { escreva fim fimrepita fimse id leia rcb repita se }
+FW(CPR) = { escreva fim id leia rcb repita se }
+FW(D) = { inteiro literal pt_v real varfim }
+FW(ES) = { escreva fim fimrepita fimse id leia rcb repita se }
+FW(EXP_R) = { entao escreva fc_p fimrepita id leia rcb se }
+FW(EXP_R_ERROR) = { escreva fimse id leia rcb se }
+FW(EXP_R_repita_ERROR) = { escreva fimrepita id leia rcb se }
 FW(L) = { pt_v }
 FW(LD) = { pt_v }
-FW(LV) = { escreva fim id leia repita se }
-FW(OPRD) = { fc_p opm opr pt_v }
+FW(LD_ERROR) = { escreva fim fimrepita fimse id leia rcb repita se }
+FW(LV) = { escreva fim id leia rcb repita se }
+FW(OPRD) = { entao escreva fc_p fimrepita id leia num opm opr pt_v rcb se }
 FW(P) = { EOF }
 FW(P') = { EOF }
-FW(R) = { escreva fim id leia repita se }
+FW(R) = { escreva fim id leia rcb repita se }
 FW(TIPO) = { id }
-FW(V) = { escreva fim id leia repita se }
+FW(V) = { escreva fim id leia rcb repita se }
 FW(ab_p_ERROR) = { id num }
-FW(fc_p_ERROR) = { entao }
+FW(ab_p_fc_p_ERROR) = { entao escreva fimrepita id leia rcb se }
+FW(ab_p_missing_ERROR) = { escreva fimse id leia rcb se }
+FW(ab_p_repita_missing_ERROR) = { escreva fimrepita id leia rcb se }
+FW(entao_ERROR) = { escreva fimse id leia rcb se }
+FW(fc_p_ERROR) = { entao escreva fimrepita id leia rcb se }
+FW(fc_p_missing_ERROR) = { escreva fimse id leia rcb se }
+FW(fc_p_repita_missing_ERROR) = { escreva fimrepita id leia rcb se }
+FW(id_CMD_ERROR) = { escreva fim fimrepita fimse id leia rcb repita se }
+FW(id_before_pt_v_ERROR) = { escreva fim fimrepita fimse id leia rcb repita se }
+FW(inicio_ERROR) = { EOF }
+FW(operator_ERROR) = { entao escreva fc_p fimrepita id leia pt_v rcb se }
+FW(pt_v_ERROR_3) = { escreva fim fimrepita fimse id leia rcb repita se }
+FW(pt_v_ERROR_4) = { escreva fim fimrepita fimse id leia rcb repita se }
+FW(rcb_ERROR) = { escreva fim fimrepita fimse id leia rcb repita se }
+FW(varfim_ERROR) = { escreva fim id leia rcb repita se }
+FW(varinicio_ERROR) = { escreva fim id leia rcb repita se }
 SOFT WARNING:TABLE[1][EOF] ALREADY HAS A VALUE, VALUE = R 1 TRYING TO ADD A 0
 slrtable: 
 State 0
-(P, 1) (inicio, S 2) 
+(D, 8) (LV, 7) (P, 1) (TIPO, 11) (V, 4) (inicio, S 2) (inicio_ERROR, 3) (inteiro, S 13) (literal, S 15) (pt_v, S 12) (real, S 14) (varfim, S 9) (varfim_ERROR, 10) (varinicio, S 5) (varinicio_ERROR, 6) 
 State 1
 (EOF, A 0) 
 State 2
-(V, 3) (varinicio, S 4) 
+(D, 8) (LV, 7) (TIPO, 11) (V, 16) (inteiro, S 13) (literal, S 15) (pt_v, S 12) (real, S 14) (varfim, S 9) (varfim_ERROR, 10) (varinicio, S 5) (varinicio_ERROR, 6) 
 State 3
-(A, 5) (CAB, 14) (CABR, 15) (CMD, 7) (COND, 8) (ES, 6) (R, 9) (escreva, S 12) (fim, S 10) (id, S 13) (leia, S 11) (repita, S 17) (se, S 16) 
+(EOF, R 47) 
 State 4
-(D, 19) (LV, 18) (TIPO, 21) (inteiro, S 22) (literal, S 24) (real, S 23) (varfim, S 20) 
+(A, 17) (CAB, 29) (CABR, 30) (CMD, 19) (COND, 20) (ES, 18) (R, 21) (entao_ERROR, 33) (escreva, S 24) (fim, S 22) (id, S 27) (id_CMD_ERROR, 28) (leia, S 23) (pt_v_ERROR_3, 25) (pt_v_ERROR_4, 26) (rcb, S 31) (repita, S 34) (se, S 32) 
 State 5
-(EOF, R 2) 
+(D, 8) (LV, 35) (TIPO, 11) (inteiro, S 13) (literal, S 15) (pt_v, S 12) (real, S 14) (varfim, S 9) (varfim_ERROR, 10) 
 State 6
-(A, 25) (CAB, 14) (CABR, 15) (CMD, 7) (COND, 8) (ES, 6) (R, 9) (escreva, S 12) (fim, S 10) (id, S 13) (leia, S 11) (repita, S 17) (se, S 16) 
+(escreva, R 49) (fim, R 49) (id, R 49) (leia, R 49) (rcb, R 49) (repita, R 49) (se, R 49) 
 State 7
-(A, 26) (CAB, 14) (CABR, 15) (CMD, 7) (COND, 8) (ES, 6) (R, 9) (escreva, S 12) (fim, S 10) (id, S 13) (leia, S 11) (repita, S 17) (se, S 16) 
+(escreva, R 50) (fim, R 50) (id, R 50) (leia, R 50) (rcb, R 50) (repita, R 50) (se, R 50) 
 State 8
-(A, 27) (CAB, 14) (CABR, 15) (CMD, 7) (COND, 8) (ES, 6) (R, 9) (escreva, S 12) (fim, S 10) (id, S 13) (leia, S 11) (repita, S 17) (se, S 16) 
+(D, 8) (LV, 36) (TIPO, 11) (inteiro, S 13) (literal, S 15) (pt_v, S 12) (real, S 14) (varfim, S 9) (varfim_ERROR, 10) 
 State 9
-(A, 28) (CAB, 14) (CABR, 15) (CMD, 7) (COND, 8) (ES, 6) (R, 9) (escreva, S 12) (fim, S 10) (id, S 13) (leia, S 11) (repita, S 17) (se, S 16) 
+(pt_v, S 37) 
 State 10
-(EOF, R 39) 
+(escreva, R 51) (fim, R 51) (id, R 51) (leia, R 51) (rcb, R 51) (repita, R 51) (se, R 51) 
 State 11
-(id, S 29) 
+(L, 38) (id, S 39) 
 State 12
-(ARG, 30) (id, S 33) (lit, S 31) (num, S 32) 
+(escreva, R 52) (fim, R 52) (id, R 52) (leia, R 52) (rcb, R 52) (repita, R 52) (se, R 52) 
 State 13
-(rcb, S 34) 
-State 14
-(CAB, 14) (CMD, 37) (COND, 38) (CP, 35) (ES, 36) (escreva, S 12) (fimse, S 39) (id, S 13) (leia, S 11) (se, S 16) 
-State 15
-(CAB, 14) (CMD, 42) (COND, 43) (CPR, 40) (ES, 41) (escreva, S 12) (fimrepita, S 44) (id, S 13) (leia, S 11) (se, S 16) 
-State 16
-(ab_p, S 45) 
-State 17
-(ab_p, S 46) 
-State 18
-(escreva, R 3) (fim, R 3) (id, R 3) (leia, R 3) (repita, R 3) (se, R 3) 
-State 19
-(D, 19) (LV, 47) (TIPO, 21) (inteiro, S 22) (literal, S 24) (real, S 23) (varfim, S 20) 
-State 20
-(pt_v, S 48) 
-State 21
-(L, 49) (id, S 50) 
-State 22
 (id, R 9) 
-State 23
+State 14
 (id, R 10) 
-State 24
+State 15
 (id, R 11) 
+State 16
+(A, 40) (CAB, 29) (CABR, 30) (CMD, 19) (COND, 20) (ES, 18) (R, 21) (entao_ERROR, 33) (escreva, S 24) (fim, S 22) (id, S 27) (id_CMD_ERROR, 28) (leia, S 23) (pt_v_ERROR_3, 25) (pt_v_ERROR_4, 26) (rcb, S 31) (repita, S 34) (se, S 32) 
+State 17
+(EOF, R 48) 
+State 18
+(A, 41) (CAB, 29) (CABR, 30) (CMD, 19) (COND, 20) (ES, 18) (R, 21) (entao_ERROR, 33) (escreva, S 24) (fim, S 22) (id, S 27) (id_CMD_ERROR, 28) (leia, S 23) (pt_v_ERROR_3, 25) (pt_v_ERROR_4, 26) (rcb, S 31) (repita, S 34) (se, S 32) 
+State 19
+(A, 42) (CAB, 29) (CABR, 30) (CMD, 19) (COND, 20) (ES, 18) (R, 21) (entao_ERROR, 33) (escreva, S 24) (fim, S 22) (id, S 27) (id_CMD_ERROR, 28) (leia, S 23) (pt_v_ERROR_3, 25) (pt_v_ERROR_4, 26) (rcb, S 31) (repita, S 34) (se, S 32) 
+State 20
+(A, 43) (CAB, 29) (CABR, 30) (CMD, 19) (COND, 20) (ES, 18) (R, 21) (entao_ERROR, 33) (escreva, S 24) (fim, S 22) (id, S 27) (id_CMD_ERROR, 28) (leia, S 23) (pt_v_ERROR_3, 25) (pt_v_ERROR_4, 26) (rcb, S 31) (repita, S 34) (se, S 32) 
+State 21
+(A, 44) (CAB, 29) (CABR, 30) (CMD, 19) (COND, 20) (ES, 18) (R, 21) (entao_ERROR, 33) (escreva, S 24) (fim, S 22) (id, S 27) (id_CMD_ERROR, 28) (leia, S 23) (pt_v_ERROR_3, 25) (pt_v_ERROR_4, 26) (rcb, S 31) (repita, S 34) (se, S 32) 
+State 22
+(EOF, R 39) 
+State 23
+(id, S 45) (id_before_pt_v_ERROR, 46) (pt_v, S 47) 
+State 24
+(ARG, 48) (id, S 52) (id_before_pt_v_ERROR, 49) (lit, S 50) (num, S 51) (pt_v, S 47) 
 State 25
-(EOF, R 12) 
+(escreva, R 95) (fim, R 95) (fimrepita, R 95) (fimse, R 95) (id, R 95) (leia, R 95) (rcb, R 95) (repita, R 95) (se, R 95) 
 State 26
-(EOF, R 18) 
+(escreva, R 97) (fim, R 97) (fimrepita, R 97) (fimse, R 97) (id, R 97) (leia, R 97) (rcb, R 97) (repita, R 97) (se, R 97) 
 State 27
-(EOF, R 24) 
+(LD, 55) (OPRD, 56) (id, S 58) (num, S 59) (operator_ERROR, 57) (rcb, S 53) (rcb_ERROR, 54) 
 State 28
-(EOF, R 32) 
+(escreva, R 60) (fim, R 60) (fimrepita, R 60) (fimse, R 60) (id, R 60) (leia, R 60) (rcb, R 60) (repita, R 60) (se, R 60) 
 State 29
-(pt_v, S 51) 
+(CAB, 29) (CMD, 62) (COND, 63) (CP, 60) (ES, 61) (entao_ERROR, 33) (escreva, S 24) (fimse, S 64) (id, S 27) (id_CMD_ERROR, 28) (leia, S 23) (pt_v_ERROR_3, 25) (pt_v_ERROR_4, 26) (rcb, S 31) (se, S 32) 
 State 30
-(pt_v, S 52) 
+(CAB, 29) (CMD, 67) (COND, 68) (CPR, 65) (ES, 66) (entao_ERROR, 33) (escreva, S 24) (fimrepita, S 69) (id, S 27) (id_CMD_ERROR, 28) (leia, S 23) (pt_v_ERROR_3, 25) (pt_v_ERROR_4, 26) (rcb, S 31) (se, S 32) 
 State 31
-(pt_v, R 15) 
+(LD, 70) (OPRD, 56) (id, S 58) (num, S 59) (operator_ERROR, 57) 
 State 32
-(pt_v, R 16) 
+(EXP_R, 74) (OPRD, 75) (ab_p, S 71) (ab_p_fc_p_ERROR, 73) (ab_p_missing_ERROR, 72) (id, S 58) (num, S 59) (operator_ERROR, 76) 
 State 33
-(pt_v, R 17) 
+(escreva, R 75) (fimse, R 75) (id, R 75) (leia, R 75) (rcb, R 75) (se, R 75) 
 State 34
-(LD, 53) (OPRD, 54) (id, S 55) (num, S 56) 
+(EXP_R, 80) (OPRD, 75) (ab_p, S 77) (ab_p_fc_p_ERROR, 79) (ab_p_repita_missing_ERROR, 78) (id, S 58) (num, S 59) (operator_ERROR, 76) 
 State 35
-(escreva, R 25) (fim, R 25) (fimrepita, R 25) (fimse, R 25) (id, R 25) (leia, R 25) (repita, R 25) (se, R 25) 
+(escreva, R 3) (fim, R 3) (id, R 3) (leia, R 3) (rcb, R 3) (repita, R 3) (se, R 3) 
 State 36
-(CAB, 14) (CMD, 37) (COND, 38) (CP, 57) (ES, 36) (escreva, S 12) (fimse, S 39) (id, S 13) (leia, S 11) (se, S 16) 
+(escreva, R 4) (fim, R 4) (id, R 4) (leia, R 4) (rcb, R 4) (repita, R 4) (se, R 4) 
 State 37
-(CAB, 14) (CMD, 37) (COND, 38) (CP, 58) (ES, 36) (escreva, S 12) (fimse, S 39) (id, S 13) (leia, S 11) (se, S 16) 
+(escreva, R 5) (fim, R 5) (id, R 5) (leia, R 5) (rcb, R 5) (repita, R 5) (se, R 5) 
 State 38
-(CAB, 14) (CMD, 37) (COND, 38) (CP, 59) (ES, 36) (escreva, S 12) (fimse, S 39) (id, S 13) (leia, S 11) (se, S 16) 
+(pt_v, S 81) 
 State 39
-(escreva, R 31) (fim, R 31) (fimrepita, R 31) (fimse, R 31) (id, R 31) (leia, R 31) (repita, R 31) (se, R 31) 
+(pt_v, R 8) (vir, S 82) 
 State 40
-(escreva, R 33) (fim, R 33) (id, R 33) (leia, R 33) (repita, R 33) (se, R 33) 
+(EOF, R 2) 
 State 41
-(CAB, 14) (CMD, 42) (COND, 43) (CPR, 60) (ES, 41) (escreva, S 12) (fimrepita, S 44) (id, S 13) (leia, S 11) (se, S 16) 
+(EOF, R 12) 
 State 42
-(CAB, 14) (CMD, 42) (COND, 43) (CPR, 61) (ES, 41) (escreva, S 12) (fimrepita, S 44) (id, S 13) (leia, S 11) (se, S 16) 
+(EOF, R 18) 
 State 43
-(CAB, 14) (CMD, 42) (COND, 43) (CPR, 62) (ES, 41) (escreva, S 12) (fimrepita, S 44) (id, S 13) (leia, S 11) (se, S 16) 
+(EOF, R 24) 
 State 44
-(escreva, R 38) (fim, R 38) (id, R 38) (leia, R 38) (repita, R 38) (se, R 38) 
+(EOF, R 32) 
 State 45
-(EXP_R, 63) (OPRD, 65) (ab_p, S 66) (ab_p_ERROR, 64) (id, S 55) (num, S 56) 
+(escreva, R 96) (fim, R 96) (fimrepita, R 96) (fimse, R 96) (id, R 96) (leia, R 96) (pt_v, S 83) (rcb, R 96) (repita, R 96) (se, R 96) 
 State 46
-(EXP_R, 67) (OPRD, 65) (id, S 55) (num, S 56) 
+(escreva, R 57) (fim, R 57) (fimrepita, R 57) (fimse, R 57) (id, R 57) (leia, R 57) (rcb, R 57) (repita, R 57) (se, R 57) 
 State 47
-(escreva, R 4) (fim, R 4) (id, R 4) (leia, R 4) (repita, R 4) (se, R 4) 
+(escreva, R 58) (fim, R 58) (fimrepita, R 58) (fimse, R 58) (id, R 58) (leia, R 58) (rcb, R 58) (repita, R 58) (se, R 58) 
 State 48
-(escreva, R 5) (fim, R 5) (id, R 5) (leia, R 5) (repita, R 5) (se, R 5) 
+(escreva, R 98) (fim, R 98) (fimrepita, R 98) (fimse, R 98) (id, R 98) (leia, R 98) (pt_v, S 84) (rcb, R 98) (repita, R 98) (se, R 98) 
 State 49
-(pt_v, S 68) 
+(escreva, R 59) (fim, R 59) (fimrepita, R 59) (fimse, R 59) (id, R 59) (leia, R 59) (rcb, R 59) (repita, R 59) (se, R 59) 
 State 50
-(pt_v, R 8) (vir, S 69) 
+(escreva, R 15) (fim, R 15) (fimrepita, R 15) (fimse, R 15) (id, R 15) (leia, R 15) (pt_v, R 15) (rcb, R 15) (repita, R 15) (se, R 15) 
 State 51
-(escreva, R 13) (fim, R 13) (fimrepita, R 13) (fimse, R 13) (id, R 13) (leia, R 13) (repita, R 13) (se, R 13) 
+(escreva, R 16) (fim, R 16) (fimrepita, R 16) (fimse, R 16) (id, R 16) (leia, R 16) (pt_v, R 16) (rcb, R 16) (repita, R 16) (se, R 16) 
 State 52
-(escreva, R 14) (fim, R 14) (fimrepita, R 14) (fimse, R 14) (id, R 14) (leia, R 14) (repita, R 14) (se, R 14) 
+(escreva, R 17) (fim, R 17) (fimrepita, R 17) (fimse, R 17) (id, R 17) (leia, R 17) (pt_v, R 17) (rcb, R 17) (repita, R 17) (se, R 17) 
 State 53
-(pt_v, S 70) 
+(LD, 85) (LD_ERROR, 86) (OPRD, 56) (id, S 58) (num, S 59) (operator_ERROR, 57) (pt_v, S 87) 
 State 54
-(opm, S 71) (pt_v, R 21) 
+(escreva, R 62) (fim, R 62) (fimrepita, R 62) (fimse, R 62) (id, R 62) (leia, R 62) (rcb, R 62) (repita, R 62) (se, R 62) 
 State 55
-(fc_p, R 22) (opm, R 22) (opr, R 22) (pt_v, R 22) 
+(pt_v, S 88) 
 State 56
-(fc_p, R 23) (opm, R 23) (opr, R 23) (pt_v, R 23) 
+(OPRD, 90) (id, S 58) (num, S 59) (opm, S 89) (pt_v, R 21) 
 State 57
-(escreva, R 28) (fim, R 28) (fimrepita, R 28) (fimse, R 28) (id, R 28) (leia, R 28) (repita, R 28) (se, R 28) 
+(pt_v, R 66) 
 State 58
-(escreva, R 29) (fim, R 29) (fimrepita, R 29) (fimse, R 29) (id, R 29) (leia, R 29) (repita, R 29) (se, R 29) 
+(entao, R 22) (escreva, R 22) (fc_p, R 22) (fimrepita, R 22) (id, R 22) (leia, R 22) (num, R 22) (opm, R 22) (opr, R 22) (pt_v, R 22) (rcb, R 22) (se, R 22) 
 State 59
-(escreva, R 30) (fim, R 30) (fimrepita, R 30) (fimse, R 30) (id, R 30) (leia, R 30) (repita, R 30) (se, R 30) 
+(entao, R 23) (escreva, R 23) (fc_p, R 23) (fimrepita, R 23) (id, R 23) (leia, R 23) (num, R 23) (opm, R 23) (opr, R 23) (pt_v, R 23) (rcb, R 23) (se, R 23) 
 State 60
-(escreva, R 35) (fim, R 35) (id, R 35) (leia, R 35) (repita, R 35) (se, R 35) 
+(escreva, R 25) (fim, R 25) (fimrepita, R 25) (fimse, R 25) (id, R 25) (leia, R 25) (rcb, R 25) (repita, R 25) (se, R 25) 
 State 61
-(escreva, R 36) (fim, R 36) (id, R 36) (leia, R 36) (repita, R 36) (se, R 36) 
+(CAB, 29) (CMD, 62) (COND, 63) (CP, 91) (ES, 61) (entao_ERROR, 33) (escreva, S 24) (fimse, S 64) (id, S 27) (id_CMD_ERROR, 28) (leia, S 23) (pt_v_ERROR_3, 25) (pt_v_ERROR_4, 26) (rcb, S 31) (se, S 32) 
 State 62
-(escreva, R 37) (fim, R 37) (id, R 37) (leia, R 37) (repita, R 37) (se, R 37) 
+(CAB, 29) (CMD, 62) (COND, 63) (CP, 92) (ES, 61) (entao_ERROR, 33) (escreva, S 24) (fimse, S 64) (id, S 27) (id_CMD_ERROR, 28) (leia, S 23) (pt_v_ERROR_3, 25) (pt_v_ERROR_4, 26) (rcb, S 31) (se, S 32) 
 State 63
-(fc_p, S 72) 
+(CAB, 29) (CMD, 62) (COND, 63) (CP, 93) (ES, 61) (entao_ERROR, 33) (escreva, S 24) (fimse, S 64) (id, S 27) (id_CMD_ERROR, 28) (leia, S 23) (pt_v_ERROR_3, 25) (pt_v_ERROR_4, 26) (rcb, S 31) (se, S 32) 
 State 64
-(EXP_R, 73) (OPRD, 65) (id, S 55) (num, S 56) 
+(escreva, R 31) (fim, R 31) (fimrepita, R 31) (fimse, R 31) (id, R 31) (leia, R 31) (rcb, R 31) (repita, R 31) (se, R 31) 
 State 65
-(opr, S 74) 
+(escreva, R 33) (fim, R 33) (id, R 33) (leia, R 33) (rcb, R 33) (repita, R 33) (se, R 33) 
 State 66
-(ab_p, S 66) (ab_p_ERROR, 75) (id, R 41) (num, R 41) 
+(CAB, 29) (CMD, 67) (COND, 68) (CPR, 94) (ES, 66) (entao_ERROR, 33) (escreva, S 24) (fimrepita, S 69) (id, S 27) (id_CMD_ERROR, 28) (leia, S 23) (pt_v_ERROR_3, 25) (pt_v_ERROR_4, 26) (rcb, S 31) (se, S 32) 
 State 67
-(fc_p, S 76) 
+(CAB, 29) (CMD, 67) (COND, 68) (CPR, 95) (ES, 66) (entao_ERROR, 33) (escreva, S 24) (fimrepita, S 69) (id, S 27) (id_CMD_ERROR, 28) (leia, S 23) (pt_v_ERROR_3, 25) (pt_v_ERROR_4, 26) (rcb, S 31) (se, S 32) 
 State 68
-(inteiro, R 6) (literal, R 6) (real, R 6) (varfim, R 6) 
+(CAB, 29) (CMD, 67) (COND, 68) (CPR, 96) (ES, 66) (entao_ERROR, 33) (escreva, S 24) (fimrepita, S 69) (id, S 27) (id_CMD_ERROR, 28) (leia, S 23) (pt_v_ERROR_3, 25) (pt_v_ERROR_4, 26) (rcb, S 31) (se, S 32) 
 State 69
-(L, 77) (id, S 50) 
+(escreva, R 38) (fim, R 38) (id, R 38) (leia, R 38) (rcb, R 38) (repita, R 38) (se, R 38) 
 State 70
-(escreva, R 19) (fim, R 19) (fimrepita, R 19) (fimse, R 19) (id, R 19) (leia, R 19) (repita, R 19) (se, R 19) 
+(pt_v, S 97) 
 State 71
-(OPRD, 78) (id, S 55) (num, S 56) 
+(EXP_R, 98) (EXP_R_ERROR, 100) (OPRD, 75) (ab_p, S 101) (ab_p_ERROR, 99) (fc_p, S 102) (id, S 58) (num, S 59) (operator_ERROR, 76) 
 State 72
-(entao, S 79) (fc_p, S 81) (fc_p_ERROR, 80) 
+(escreva, R 69) (fimse, R 69) (id, R 69) (leia, R 69) (rcb, R 69) (se, R 69) 
 State 73
-(fc_p, S 82) 
+(entao, S 103) 
 State 74
-(OPRD, 83) (id, S 55) (num, S 56) 
+(entao, R 89) (escreva, R 89) (fc_p, S 104) (fimrepita, R 89) (id, R 89) (leia, R 89) (rcb, R 89) (se, R 89) 
 State 75
-(id, R 40) (num, R 40) 
+(OPRD, 90) (id, S 58) (num, S 59) (opr, S 105) 
 State 76
-(escreva, R 34) (fimrepita, R 34) (id, R 34) (leia, R 34) (se, R 34) 
+(entao, R 67) (escreva, R 67) (fc_p, R 67) (fimrepita, R 67) (id, R 67) (leia, R 67) (rcb, R 67) (se, R 67) 
 State 77
-(pt_v, R 7) 
+(EXP_R, 106) (EXP_R_repita_ERROR, 109) (OPRD, 75) (ab_p, S 101) (ab_p_ERROR, 107) (fc_p, S 110) (fc_p_repita_missing_ERROR, 108) (id, S 58) (num, S 59) (operator_ERROR, 76) 
 State 78
-(pt_v, R 20) 
+(escreva, R 82) (fimrepita, R 82) (id, R 82) (leia, R 82) (rcb, R 82) (se, R 82) 
 State 79
-(escreva, R 26) (fimse, R 26) (id, R 26) (leia, R 26) (se, R 26) 
+(escreva, R 88) (fimrepita, R 88) (id, R 88) (leia, R 88) (rcb, R 88) (se, R 88) 
 State 80
-(entao, S 84) 
+(entao, R 89) (escreva, R 89) (fc_p, S 111) (fimrepita, R 89) (id, R 89) (leia, R 89) (rcb, R 89) (se, R 89) 
 State 81
-(entao, R 43) (fc_p, S 81) (fc_p_ERROR, 85) 
+(inteiro, R 6) (literal, R 6) (pt_v, R 6) (real, R 6) (varfim, R 6) 
 State 82
-(entao, S 86) (fc_p, S 81) (fc_p_ERROR, 87) 
+(L, 112) (id, S 39) 
 State 83
-(fc_p, R 27) 
+(escreva, R 13) (fim, R 13) (fimrepita, R 13) (fimse, R 13) (id, R 13) (leia, R 13) (rcb, R 13) (repita, R 13) (se, R 13) 
 State 84
-(escreva, R 45) (fimse, R 45) (id, R 45) (leia, R 45) (se, R 45) 
+(escreva, R 14) (fim, R 14) (fimrepita, R 14) (fimse, R 14) (id, R 14) (leia, R 14) (rcb, R 14) (repita, R 14) (se, R 14) 
 State 85
-(entao, R 42) 
+(pt_v, S 113) 
 State 86
-(escreva, R 44) (fimse, R 44) (id, R 44) (leia, R 44) (se, R 44) 
+(escreva, R 64) (fim, R 64) (fimrepita, R 64) (fimse, R 64) (id, R 64) (leia, R 64) (rcb, R 64) (repita, R 64) (se, R 64) 
 State 87
-(entao, S 88) 
+(escreva, R 65) (fim, R 65) (fimrepita, R 65) (fimse, R 65) (id, R 65) (leia, R 65) (rcb, R 65) (repita, R 65) (se, R 65) 
 State 88
-(escreva, R 46) (fimse, R 46) (id, R 46) (leia, R 46) (se, R 46) 
+(escreva, R 63) (fim, R 63) (fimrepita, R 63) (fimse, R 63) (id, R 63) (leia, R 63) (rcb, R 63) (repita, R 63) (se, R 63) 
+State 89
+(OPRD, 114) (id, S 58) (num, S 59) 
+State 90
+(entao, R 68) (escreva, R 68) (fc_p, R 68) (fimrepita, R 68) (id, R 68) (leia, R 68) (pt_v, R 68) (rcb, R 68) (se, R 68) 
+State 91
+(escreva, R 28) (fim, R 28) (fimrepita, R 28) (fimse, R 28) (id, R 28) (leia, R 28) (rcb, R 28) (repita, R 28) (se, R 28) 
+State 92
+(escreva, R 29) (fim, R 29) (fimrepita, R 29) (fimse, R 29) (id, R 29) (leia, R 29) (rcb, R 29) (repita, R 29) (se, R 29) 
+State 93
+(escreva, R 30) (fim, R 30) (fimrepita, R 30) (fimse, R 30) (id, R 30) (leia, R 30) (rcb, R 30) (repita, R 30) (se, R 30) 
+State 94
+(escreva, R 35) (fim, R 35) (id, R 35) (leia, R 35) (rcb, R 35) (repita, R 35) (se, R 35) 
+State 95
+(escreva, R 36) (fim, R 36) (id, R 36) (leia, R 36) (rcb, R 36) (repita, R 36) (se, R 36) 
+State 96
+(escreva, R 37) (fim, R 37) (id, R 37) (leia, R 37) (rcb, R 37) (repita, R 37) (se, R 37) 
+State 97
+(escreva, R 61) (fim, R 61) (fimrepita, R 61) (fimse, R 61) (id, R 61) (leia, R 61) (rcb, R 61) (repita, R 61) (se, R 61) 
+State 98
+(entao, S 117) (fc_p, S 115) (fc_p_missing_ERROR, 116) 
+State 99
+(EXP_R, 118) (OPRD, 75) (id, S 58) (num, S 59) (operator_ERROR, 76) 
+State 100
+(escreva, R 73) (fimse, R 73) (id, R 73) (leia, R 73) (rcb, R 73) (se, R 73) 
+State 101
+(ab_p, S 101) (ab_p_ERROR, 119) (id, R 41) (num, R 41) 
+State 102
+(entao, S 120) 
+State 103
+(escreva, R 90) (fimse, R 90) (id, R 90) (leia, R 90) (rcb, R 90) (se, R 90) 
+State 104
+(entao, S 121) 
+State 105
+(OPRD, 122) (id, S 58) (num, S 59) 
+State 106
+(escreva, R 85) (fc_p, S 123) (fimrepita, R 85) (id, R 85) (leia, R 85) (rcb, R 85) (se, R 85) 
+State 107
+(EXP_R, 124) (OPRD, 75) (id, S 58) (num, S 59) (operator_ERROR, 76) 
+State 108
+(escreva, R 84) (fimrepita, R 84) (id, R 84) (leia, R 84) (rcb, R 84) (se, R 84) 
+State 109
+(escreva, R 86) (fimrepita, R 86) (id, R 86) (leia, R 86) (rcb, R 86) (se, R 86) 
+State 110
+(escreva, R 87) (fimrepita, R 87) (id, R 87) (leia, R 87) (rcb, R 87) (se, R 87) 
+State 111
+(escreva, R 83) (fimrepita, R 83) (id, R 83) (leia, R 83) (rcb, R 83) (se, R 83) 
+State 112
+(pt_v, R 7) 
+State 113
+(escreva, R 19) (fim, R 19) (fimrepita, R 19) (fimse, R 19) (id, R 19) (leia, R 19) (rcb, R 19) (repita, R 19) (se, R 19) 
+State 114
+(pt_v, R 20) 
+State 115
+(entao, S 125) (escreva, R 76) (fc_p, S 127) (fc_p_ERROR, 126) (fimse, R 76) (id, R 76) (leia, R 76) (rcb, R 76) (se, R 76) 
+State 116
+(escreva, R 71) (fimse, R 71) (id, R 71) (leia, R 71) (rcb, R 71) (se, R 71) 
+State 117
+(escreva, R 72) (fimse, R 72) (id, R 72) (leia, R 72) (rcb, R 72) (se, R 72) 
+State 118
+(fc_p, S 128) 
+State 119
+(id, R 40) (num, R 40) 
+State 120
+(escreva, R 74) (fimse, R 74) (id, R 74) (leia, R 74) (rcb, R 74) (se, R 74) 
+State 121
+(escreva, R 70) (fimse, R 70) (id, R 70) (leia, R 70) (rcb, R 70) (se, R 70) 
+State 122
+(entao, R 27) (escreva, R 27) (fc_p, R 27) (fimrepita, R 27) (id, R 27) (leia, R 27) (rcb, R 27) (se, R 27) 
+State 123
+(escreva, R 34) (fc_p, S 127) (fc_p_ERROR, 129) (fimrepita, R 34) (id, R 34) (leia, R 34) (rcb, R 34) (se, R 34) 
+State 124
+(fc_p, S 130) 
+State 125
+(escreva, R 26) (fimse, R 26) (id, R 26) (leia, R 26) (rcb, R 26) (se, R 26) 
+State 126
+(entao, S 131) 
+State 127
+(entao, R 43) (escreva, R 43) (fc_p, S 127) (fc_p_ERROR, 132) (fimrepita, R 43) (id, R 43) (leia, R 43) (rcb, R 43) (se, R 43) 
+State 128
+(entao, S 133) (fc_p, S 127) (fc_p_ERROR, 134) 
+State 129
+(escreva, R 80) (fimrepita, R 80) (id, R 80) (leia, R 80) (rcb, R 80) (se, R 80) 
+State 130
+(escreva, R 79) (fc_p, S 127) (fc_p_ERROR, 135) (fimrepita, R 79) (id, R 79) (leia, R 79) (rcb, R 79) (se, R 79) 
+State 131
+(escreva, R 45) (fimse, R 45) (id, R 45) (leia, R 45) (rcb, R 45) (se, R 45) 
+State 132
+(entao, R 42) (escreva, R 42) (fimrepita, R 42) (id, R 42) (leia, R 42) (rcb, R 42) (se, R 42) 
+State 133
+(escreva, R 44) (fimse, R 44) (id, R 44) (leia, R 44) (rcb, R 44) (se, R 44) 
+State 134
+(entao, S 136) 
+State 135
+(escreva, R 81) (fimrepita, R 81) (id, R 81) (leia, R 81) (rcb, R 81) (se, R 81) 
+State 136
+(escreva, R 46) (fimse, R 46) (id, R 46) (leia, R 46) (rcb, R 46) (se, R 46) 
 Writing output to ..//

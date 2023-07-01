@@ -11,7 +11,7 @@ inicio
     leia A;
     se(B>2)
     entao
-        se(((((B<=4)))
+        se B<=4
         entao
             escreva "B esta entre 2 e 4";
         fimse
@@ -21,7 +21,7 @@ inicio
     B<-B+3;
     D<-B;
     C<-5.0;
-    repita (B<5)
+    repita ()
         C<-B+2;
         escreva C;
         B<-B+1;
@@ -29,7 +29,7 @@ inicio
     escreva "\nB=\n";
     escreva D;
     escreva "\n";
-    escreva C;
+    escreva C
     escreva "\n";
     escreva A;
 fim
