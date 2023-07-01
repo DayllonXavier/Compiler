@@ -250,8 +250,8 @@ bool Sintatico::process()
             return true;
         }
         else{
+            if(token.getClasse() == "eof") break;// No more tokens to discard, exit
             fixError();
-            break;
         }
     }
 
@@ -261,6 +261,38 @@ bool Sintatico::process()
 void Sintatico::fixError()
 {
     cout << "SYNTAX ERROR FOUND on line " << infoAutomatonStack.top().first << " and column " << infoAutomatonStack.top().second << endl;
+
+    cout << "FIXING USING PANIC MODE\n";
+
+    pair<char, int> movement;
+    char actionType;
+    int actionMove;
+    int stateT;
+
+    // Finding Syncronizing Token
+    while(token.getClasse() != "pt_v" && token.getClasse() != "fc_p" && token.getClasse() != "eof")
+    {
+        cout << "Ignoring token " << token.getClasse() << " to fix error \n";
+        getNextToken();
+    }
+
+    // Skip to next token after syncronizing token
+    getNextToken();
+
+    // Discard states inside stack until a valid transition is found
+    while(true){
+        state = stackTop();
+        movement = actionTable[state][terminalSymbolsIdx[token.getClasse()]];
+        actionType = movement.first;
+
+        // Edge case: stack cannot be empty, if(size == 1) exit
+        if (actionType != 'E' || automatonStack.size() == 1){
+            break;
+        }else{
+            stackPop();
+        }
+    }
+    cout << "END OF PANIC MODE!" << endl;
 }
 
 void Sintatico::fixErrorProductions(int ruleIdx)
