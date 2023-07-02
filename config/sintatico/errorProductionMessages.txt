@@ -1,4 +1,4 @@
-21
+22
 ab_p_ERROR Abertura de parêntese sobressalente
 fc_p_ERROR Fechamento de parêntese sobressalente
 inicio_ERROR Falta da palavra chave: inicio
@@ -6,7 +6,7 @@ varinicio_ERROR Falta da palavra chave: varinicio
 varfim_ERROR Falta da palavra chave: varfim
 id_before_pt_v_ERROR Falta de identificador
 id_CMD_ERROR Falta de identificador
-rcb_ERROR Falta de =
+rcb_ERROR Falta de <-
 LD_ERROR Atribuição incompleta
 operator_ERROR Falta de operador
 ab_p_missing_ERROR Abertura de parêntese faltando

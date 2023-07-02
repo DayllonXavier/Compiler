@@ -41,7 +41,7 @@ class Sintatico
         void printRule(int idxOfRule);
         void getNextToken();
         void fixError();
-        void fixErrorProductions(int ruleIdx);
+        bool fixErrorProductions(int ruleIdx);
 
         const string pathToBasicInformation = "config/sintatico/qtd.txt";
         const string pathToGrammar = "config/sintatico/Grammar/grammar.txt";

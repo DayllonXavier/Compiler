@@ -26,5 +26,7 @@
 99 P inicio fim_ERROR_1
 100 fim_ERROR_1 V
 
-77 COND fimse_ERROR
-78 fimse_ERROR -> CAB
+89 COND fimse_ERROR
+90 fimse_ERROR -> CAB
+91 R -> fimrepita_ERROR
+92 fimrepita_ERROR -> CABR

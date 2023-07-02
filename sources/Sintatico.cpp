@@ -220,6 +220,7 @@ void Sintatico::printRule(int idxOfRule)
 
 bool Sintatico::process()
 {
+    bool correctlyDerivation = true;
     stackClear();
     stackAdd(0);
     getNextToken();
@@ -241,21 +242,22 @@ bool Sintatico::process()
         }
         else if (actionType == 'R'){
             stackPop(rulesSize[actionMove]);
-            fixErrorProductions(actionMove);
+            correctlyDerivation &= fixErrorProductions(actionMove);
             printRule(actionMove);
             stateT = stackTop();
             stackAdd(gotoTable[stateT][nonTerminalSymbolsIdx[leftOfRules[actionMove]]]);
         }
         else if (actionType == 'A'){
-            return true;
+            return correctlyDerivation;
         }
         else{
+            correctlyDerivation = false;
             if(token.getClasse() == "eof") break;// No more tokens to discard, exit
             fixError();
         }
     }
 
-    return false;
+    return correctlyDerivation;
 }
 
 void Sintatico::fixError()
@@ -295,10 +297,12 @@ void Sintatico::fixError()
     cout << "END OF PANIC MODE!" << endl;
 }
 
-void Sintatico::fixErrorProductions(int ruleIdx)
+bool Sintatico::fixErrorProductions(int ruleIdx)
 {
     if (errorProductionMessages.count(leftOfRules[ruleIdx])){
         cout << "SYNTAX ERROR FOUND on line " << infoAutomatonStack.top().first << " and column " << infoAutomatonStack.top().second << endl;
         cout << "\t" << errorProductionMessages[leftOfRules[ruleIdx]] << endl; 
+        return false;
     }
+    return true;
 }
