@@ -26,6 +26,7 @@ inicio
         escreva C;
         B<-B+1;
     fimrepita
+    23.
     escreva "\nB=\n";
     escreva D;
     escreva "\n";

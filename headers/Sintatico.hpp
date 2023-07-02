@@ -41,7 +41,7 @@ class Sintatico
         void printRule(int idxOfRule);
         void getNextToken();
         void fixError();
-        bool fixErrorProductions(int ruleIdx);
+        void fixErrorProductions(int ruleIdx);
 
         const string pathToBasicInformation = "config/sintatico/qtd.txt";
         const string pathToGrammar = "config/sintatico/Grammar/grammar.txt";
@@ -66,6 +66,7 @@ class Sintatico
         Token token;
         pair<int, int> readPos;
         int state, nextState;
+        bool correctlyDerivation;
 };
 
 #endif //Sintatico_hpp
