@@ -5,6 +5,7 @@ inicio
         inteiro D;
         real C ;
     varfim;
+    3<-5
     escreva "Digite B:";
     leia B;
     escreva "Digite A:";

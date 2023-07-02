@@ -1,11 +1,9 @@
-25
+21
 ab_p_ERROR Abertura de parêntese sobressalente
 fc_p_ERROR Fechamento de parêntese sobressalente
 inicio_ERROR Falta da palavra chave: inicio
 varinicio_ERROR Falta da palavra chave: varinicio
 varfim_ERROR Falta da palavra chave: varfim
-TIPO_ERROR TIPO não definido
-vir_L_ERROR Faltando: ,
 id_before_pt_v_ERROR Falta de identificador
 id_CMD_ERROR Falta de identificador
 rcb_ERROR Falta de =
@@ -15,12 +13,9 @@ ab_p_missing_ERROR Abertura de parêntese faltando
 fc_p_missing_ERROR Fechamento de parêntese faltando
 EXP_R_ERROR Faltando condição
 entao_ERROR Falta da palavra chave: entao
-fimse_ERROR Falta da palavra chave: fimse
 ab_p_repita_missing_ERROR Abertura de parêntese faltando
 fc_p_repita_missing_ERROR Fechamento de parêntese faltando
 EXP_R_repita_ERROR Faltando condição
-fimrepita_ERROR Falta da palavra chave: fimrepita
 ab_p_fc_p_ERROR Falta dos parênteses
 pt_v_ERROR_3 Falta ;
 pt_v_ERROR_4 Falta ;
-fim_ERROR_2 Falta da palavra chave: fim
