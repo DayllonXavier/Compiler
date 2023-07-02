@@ -50,39 +50,39 @@
 50 varinicio_ERROR -> LV
 51 LV -> varfim_ERROR
 52 varfim_ERROR -> pt_v
-57 ES -> leia id_before_pt_v_ERROR
-58 id_before_pt_v_ERROR -> pt_v
-59 ES -> escreva id_before_pt_v_ERROR
-60 CMD -> id_CMD_ERROR
-61 id_CMD_ERROR -> rcb LD pt_v
-62 CMD -> id rcb_ERROR
-63 rcb_ERROR -> LD pt_v 
-64 CMD -> id rcb LD_ERROR
-65 LD_ERROR -> pt_v
-66 LD -> operator_ERROR
-67 EXP_R -> operator_ERROR
-68 operator_ERROR -> OPRD OPRD
-69 CAB -> se ab_p_missing_ERROR
-70 ab_p_missing_ERROR -> EXP_R fc_p entao
-71 CAB -> se ab_p EXP_R fc_p_missing_ERROR
-72 fc_p_missing_ERROR -> entao
-73 CAB -> se ab_p EXP_R_ERROR
-74 EXP_R_ERROR -> fc_p entao
-75 CAB -> entao_ERROR
-76 entao_ERROR = se ab_p EXP_R fc_p
-79 CABR -> repita ab_p ab_p_ERROR EXP_R fc_p
-80 CABR -> repita ab_p EXP_R fc_p fc_p_ERROR
-81 CABR -> repita ab_p ab_p_ERROR EXP_R fc_p fc_p_ERROR
-82 CABR -> repita ab_p_repita_missing_ERROR
-83 ab_p_repita_missing_ERROR -> EXP_R fc_p
-84 CABR -> repita ab_p fc_p_repita_missing_ERROR
-85 fc_p_repita_missing_ERROR -> EXP_R
-86 CABR -> repita ab_p EXP_R_repita_ERROR
-87 EXP_R_repita_ERROR -> fc_p
-88 CABR -> repita ab_p_fc_p_ERROR 
-89 ab_p_fc_p_ERROR -> EXP_R
-90 CAB -> se ab_p_fc_p_ERROR entao
-95 ES -> pt_v_ERROR_3
-96 pt_v_ERROR_3 -> leia id
-97 ES -> pt_v_ERROR_4
-98 pt_v_ERROR_4 -> escreva ARG
+53 ES -> leia id_before_pt_v_ERROR
+54 id_before_pt_v_ERROR -> pt_v
+55 ES -> escreva id_before_pt_v_ERROR
+56 CMD -> id_CMD_ERROR
+57 id_CMD_ERROR -> rcb LD pt_v
+58 CMD -> id rcb_ERROR
+59 rcb_ERROR -> LD pt_v 
+60 CMD -> id rcb LD_ERROR
+61 LD_ERROR -> pt_v
+62 LD -> operator_ERROR
+63 EXP_R -> operator_ERROR
+64 operator_ERROR -> OPRD OPRD
+65 CAB -> se ab_p_missing_ERROR
+66 ab_p_missing_ERROR -> EXP_R fc_p entao
+67 CAB -> se ab_p EXP_R fc_p_missing_ERROR
+68 fc_p_missing_ERROR -> entao
+69 CAB -> se ab_p EXP_R_ERROR
+70 EXP_R_ERROR -> fc_p entao
+71 CAB -> entao_ERROR
+72 entao_ERROR = se ab_p EXP_R fc_p
+73 CABR -> repita ab_p ab_p_ERROR EXP_R fc_p
+74 CABR -> repita ab_p EXP_R fc_p fc_p_ERROR
+75 CABR -> repita ab_p ab_p_ERROR EXP_R fc_p fc_p_ERROR
+76 CABR -> repita ab_p_repita_missing_ERROR
+77 ab_p_repita_missing_ERROR -> EXP_R fc_p
+78 CABR -> repita ab_p fc_p_repita_missing_ERROR
+79 fc_p_repita_missing_ERROR -> EXP_R
+80 CABR -> repita ab_p EXP_R_repita_ERROR
+81 EXP_R_repita_ERROR -> fc_p
+82 CABR -> repita ab_p_fc_p_ERROR 
+83 ab_p_fc_p_ERROR -> EXP_R
+84 CAB -> se ab_p_fc_p_ERROR entao
+85 ES -> pt_v_ERROR_3
+86 pt_v_ERROR_3 -> leia id
+87 ES -> pt_v_ERROR_4
+88 pt_v_ERROR_4 -> escreva ARG
