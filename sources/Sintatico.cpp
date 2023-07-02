@@ -264,9 +264,11 @@ bool Sintatico::process()
 
 void Sintatico::fixError()
 {
-    cout << "SYNTAX ERROR FOUND on line " << infoAutomatonStack.top().first << " and column " << infoAutomatonStack.top().second << endl;
+    //cout << "SYNTAX ERROR FOUND on line " << infoAutomatonStack.top().first << " and column " << infoAutomatonStack.top().second << endl;
+    cout << "ERRO SINTATICO-> (Linha: " << infoAutomatonStack.top().first << " Coluna: " << infoAutomatonStack.top().second << ")" << endl;
+    cout << "\t" << "Modo Panico" << endl; 
 
-    cout << "FIXING USING PANIC MODE\n";
+    //cout << "FIXING USING PANIC MODE\n";
 
     pair<char, int> movement;
     char actionType;
@@ -276,7 +278,7 @@ void Sintatico::fixError()
     // Finding Syncronizing Token
     while(token.getClasse() != "pt_v" && token.getClasse() != "fc_p" && token.getClasse() != "eof")
     {
-        cout << "Ignoring token " << token.getClasse() << " to fix error \n";
+        //cout << "Ignoring token " << token.getClasse() << " to fix error \n";
         getNextToken();
     }
 
@@ -296,13 +298,14 @@ void Sintatico::fixError()
             stackPop();
         }
     }
-    cout << "END OF PANIC MODE!" << endl;
+    //cout << "END OF PANIC MODE!" << endl;
 }
 
 void Sintatico::fixErrorProductions(int ruleIdx)
 {
     if (errorProductionMessages.count(leftOfRules[ruleIdx])){
-        cout << "SYNTAX ERROR FOUND on line " << infoAutomatonStack.top().first << " and column " << infoAutomatonStack.top().second << endl;
+        //cout << "SYNTAX ERROR FOUND on line " << infoAutomatonStack.top().first << " and column " << infoAutomatonStack.top().second << endl;
+        cout << "ERRO SINTATICO-> (Linha: " << infoAutomatonStack.top().first << " Coluna: " << infoAutomatonStack.top().second << ")" << endl;
         cout << "\t" << errorProductionMessages[leftOfRules[ruleIdx]] << endl; 
         correctlyDerivation = false;
     }
