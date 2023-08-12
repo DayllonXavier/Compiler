@@ -1,7 +1,7 @@
 #include "Sintatico.hpp"
 
-Sintatico::Sintatico(Lexico& _analisadorLexico)
-: analisadorLexico(_analisadorLexico)
+Sintatico::Sintatico(Lexico& _analisadorLexico, Semantico& _analisadorSemantico)
+: analisadorLexico(_analisadorLexico), analisadorSemantico(_analisadorSemantico)
 {
     initSintatico();
 }
@@ -210,14 +210,15 @@ void Sintatico::getNextToken()
         token = analisadorLexico.SCANNER();
     }
     readPos = analisadorLexico.getPos();
-    //cout << state << " " << token.getClasse() << " " << terminalSymbolsIdx[token.getClasse()] << " -- " << analisadorLexico.getPos().first << " " << analisadorLexico.getPos().second << endl;
-    //int a;
-    //cin >> a;
 }
 
 void Sintatico::printRule(int idxOfRule)
 {
     cout << rules[idxOfRule] << endl;
+    if (!correctlyDerivation)
+        return;
+    analisadorSemantico.setReadPos(infoAutomatonStack.top());
+    correctlyDerivation &= analisadorSemantico.process(idxOfRule, rulesSize[idxOfRule]);
 }
 
 bool Sintatico::process()
@@ -240,6 +241,7 @@ bool Sintatico::process()
         //cout << state << " " << token.getClasse() << " " << terminalSymbolsIdx[token.getClasse()] << endl;
         if (actionType == 'S'){
             stackAdd(actionMove);
+            analisadorSemantico.stackAdd(token);
             getNextToken();
         }
         else if (actionType == 'R'){

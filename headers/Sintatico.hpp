@@ -12,13 +12,14 @@
 
 #include "Token.hpp"
 #include "Lexico.hpp"
+#include "Semantico.hpp"
 
 using namespace std;
 
 class Sintatico
 {
     public:
-        Sintatico(Lexico& _analisadorLexico);
+        Sintatico(Lexico& _analisadorLexico, Semantico& _analisadorSemantico);
         ~Sintatico();
         bool process();
 
@@ -54,6 +55,7 @@ class Sintatico
 
         int nbEstados, nbTerminalSymbols, nbNonTerminalSymbols, nbRules;
         Lexico& analisadorLexico;
+        Semantico& analisadorSemantico;
         map<int, string> rules, leftOfRules;
         map<int, int> rulesSize;
         map<string, int> terminalSymbolsIdx, nonTerminalSymbolsIdx;

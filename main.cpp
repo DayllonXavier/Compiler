@@ -4,6 +4,7 @@
 #include "Lexico.hpp"
 #include "SymbolTable.hpp"
 #include "Sintatico.hpp"
+#include "Semantico.hpp"
 
 using namespace std;
 
@@ -20,8 +21,8 @@ int main(int argc, char *argv[]){
             cout << t << endl;
     } while (t.getClasse() != "EOF");*/
     //tabelaDeSimbolos.imprimir();
-
-    Sintatico s(l);
+    Semantico m(tabelaDeSimbolos, "output/out.c");
+    Sintatico s(l, m);
     bool f = s.process();
     cout << (f ? "TRUE" : "FALSE") << endl;
     return 0;

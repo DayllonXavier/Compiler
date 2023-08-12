@@ -22,7 +22,7 @@ class Token
 
         friend ostream& operator<<(ostream& os, const Token & token)
         {
-            return os << "Classe: " << token.getClasse() << ", Lexema: " << token.getLexema() << ", Tipo: " << token.getTipo();    
+            return os << "( Classe: " << token.getClasse() << ", Lexema: " << token.getLexema() << ", Tipo: " << token.getTipo() << " )";    
         }
 
         bool operator<(const Token& token) const;
