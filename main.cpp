@@ -12,6 +12,7 @@ int main(int argc, char *argv[]){
 
     Token t;
     string path_to_source_code = argv[1];
+    string path_to_object_code = argv[2];
     SymbolTable tabelaDeSimbolos;
     Lexico l(path_to_source_code, tabelaDeSimbolos);
     /*do
@@ -21,7 +22,7 @@ int main(int argc, char *argv[]){
             cout << t << endl;
     } while (t.getClasse() != "EOF");*/
     //tabelaDeSimbolos.imprimir();
-    Semantico m(tabelaDeSimbolos, "output/out.c");
+    Semantico m(tabelaDeSimbolos, path_to_object_code);
     Sintatico s(l, m);
     bool f = s.process();
     cout << (f ? "TRUE" : "FALSE") << endl;

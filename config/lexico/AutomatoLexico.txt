@@ -26,24 +26,24 @@
 Construção Inválida
 1
 num
-Inteiro
+inteiro
 0
 Definição de número incompleta
 1
 num
-Real
+real
 0
 Definição de número incompleta
 0
 Definição de número incompleta
 1
 num
-Real
+real
 0
 Definição de literal incompleta
 1
 lit
-Literal
+literal
 0
 Comentario não fechado
 1

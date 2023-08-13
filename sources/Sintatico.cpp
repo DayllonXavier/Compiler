@@ -252,6 +252,7 @@ bool Sintatico::process()
             stackAdd(gotoTable[stateT][nonTerminalSymbolsIdx[leftOfRules[actionMove]]]);
         }
         else if (actionType == 'A'){
+            analisadorSemantico.finalize(correctlyDerivation);
             return correctlyDerivation;
         }
         else{
@@ -261,6 +262,7 @@ bool Sintatico::process()
         }
     }
 
+    analisadorSemantico.finalize(correctlyDerivation);
     return correctlyDerivation;
 }
 

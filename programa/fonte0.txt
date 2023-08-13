@@ -1,6 +1,6 @@
 inicio
     varinicio
-        literal A,B;
+        literal A;
         inteiro B;
         inteiro D;
         real C ;
@@ -22,7 +22,7 @@ inicio
     D<-B;
     C<-5.0;
     repita (B<5)
-        C<-B+2;
+        C<-C+2.0;
         escreva C;
         B<-B+1;
     fimrepita

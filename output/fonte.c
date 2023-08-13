@@ -8,18 +8,15 @@ int main(){
 	int T_2;
 	int T_3;
 	int T_4;
-	double T_5;
-	int T_6;
 	/*------------------------------*/
 
 	literal A;
-	int B;
-	int D;
+	int D, B;
 	double C;
 	
 
 
-	printf("%s", "Digite B:");
+	printf("%s", "Digite B");
 	scanf("%d", &B);
 	printf("%s", "Digite A:");
 	scanf("%s", A);
@@ -38,13 +35,6 @@ int main(){
 	B = T_4;
 	D = B;
 	C = 5.0;
-	while ( B < 5 ){
-		T_5 = C + 2.0;
-		C = T_5;
-		printf("%lf", C);
-		T_6 = B + 1;
-		B = T_6;
-	}
 	printf("%s", "\nB=\n");
 	printf("%d", D);
 	printf("%s", "\n");
