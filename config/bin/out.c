@@ -5,9 +5,7 @@ int main(){
 	literal A;
 	int D, B;
 	double C;
-	
-
-
+	/*------------------------------*/
 	printf("%s", "Digite B");
 	scanf("%d", &B);
 	printf("%s", "Digite A:");

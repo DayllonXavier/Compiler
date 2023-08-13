@@ -114,7 +114,7 @@ void Semantico::generateFinalFile()
             objectFile << "\n\t/*----Variaveis temporarias----*/\n";
             for (pair<string, string> item : tempVars)
                 objectFile << "\t" + convertTypes(item.second) + " " + item.first + ";\n";
-            objectFile << "\t/*------------------------------*/\n";
+            objectFile << "\t/*------------------------------*/";
         }
         readFile >> ch;
     } while(!readFile.eof());
@@ -236,7 +236,7 @@ bool Semantico::regra_4()
 bool Semantico::regra_5()
 {
     stackAdd(Token("_", "LV", "NULO"));
-    printObjectFile("\n\n\n");
+    printObjectFile("/*------------------------------*/\n");
     return true;
 }
 

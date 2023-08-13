@@ -9,13 +9,10 @@ int main(){
 	int T_3;
 	int T_4;
 	/*------------------------------*/
-
 	literal A;
 	int D, B;
 	double C;
-	
-
-
+	/*------------------------------*/
 	printf("%s", "Digite B");
 	scanf("%d", &B);
 	printf("%s", "Digite A:");
